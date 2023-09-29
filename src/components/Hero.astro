@@ -2,8 +2,50 @@
 const { name, about } = Astro.props;
 ---
 
-<section>
-    <p>Hey, I'm</p>
-    <h1>{name}</h1>
-    <p>{about}</p>
+<section class="two__column">
+    <div>
+        <p>Hello, I'm</p>
+        <h1>{name}</h1>
+        <p>{about}</p>
+    </div>
+    <img class="profile__image" src="/assets/images/profile.webp" alt="" />
 </section>
+
+<style>
+    h1 {
+        display: inline-block;
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0;
+        background: linear-gradient(
+            90deg,
+            var(--primary-color),
+            var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+    }
+
+    .two__column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .profile__image {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    @media (max-width: 1000px) {
+        .two__column {
+            flex-direction: column;
+        }
+    }
+</style>
