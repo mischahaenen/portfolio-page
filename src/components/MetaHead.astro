@@ -1,0 +1,47 @@
+---
+import { info } from '@data/info';
+
+const { title, ogImageUrl } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{title && <title>{`${title} - ${info.name}`}</title>}
+{title && <meta name="title" content={`${title} - ${info.name}`} />}
+<meta
+    name="description"
+    content=`A showcase of ${info.name}'s work, projects, and professional journey. Web developer specializing in Angular.`
+/>
+{info.about && <meta name="description" content={info.about} />}
+
+{
+    title && (
+        <meta
+            property="og:url"
+            content={`${info.baseUrl}${Astro.url.pathname}`}
+        />
+    )
+}
+{title && <meta property="og:title" content={`${title} - ${info.name}`} />}
+{info.about && <meta property="og:description" content={info.about} />}
+
+<meta
+    name="keywords"
+    content="web development, portfolio, [Your Name], projects, programming"
+/>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Mischa Haenen's Portfolio" />
+<meta
+    property="og:description"
+    content="A showcase of Mischa Haenen's work, projects, and professional journey."
+/>
+<meta property="og:url" content="[Your Portfolio URL]" />
+{
+    ogImageUrl && (
+        <meta property="og:image" content={`${info.baseUrl}${ogImageUrl}`} />
+    )
+}
+<link rel="icon" href="/favicon.ico" />
+
+<meta name="generator" content={Astro.generator} />
