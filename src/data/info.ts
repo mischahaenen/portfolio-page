@@ -1,7 +1,7 @@
 import type { CiriculumVitae } from 'src/types/CiriculumVitae';
 
 export const info: CiriculumVitae = {
-    baseUrl: 'https://your-portfolio-url.vercel.app',
+    baseUrl: 'https://mischahaenen.github.io/',
     name: 'Mischa Haenen',
     jobDescription: 'Software Engineer Frontend',
     about: `I am a curious and inquisitive software developer. I am particularly interested in front-end software development,

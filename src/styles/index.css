@@ -1,0 +1,42 @@
+:root {
+    --primary-bg-color: #ffffff;
+    --primary-text-color: #111111;
+    --accent-color-dark: #64a5f7;
+    --primary-font: 'Lato', sans-serif;
+    --heading-font: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--primary-text-color);
+    background-color: var(--primary-bg-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+}
+
+a {
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg-color: #111111;
+        --secondary-bg-color: #222;
+        --primary-text-color: #eaeaea;
+        --accent-color: #64a5f7;
+        --accent-color-dark: #2b88fa;
+    }
+}

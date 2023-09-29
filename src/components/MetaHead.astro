@@ -28,7 +28,7 @@ const { title, ogImageUrl } = Astro.props;
 
 <meta
     name="keywords"
-    content="web development, portfolio, [Your Name], projects, programming"
+    content="web development, portfolio, Mischa Haenen, projects, programming"
 />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Mischa Haenen's Portfolio" />
@@ -36,12 +36,25 @@ const { title, ogImageUrl } = Astro.props;
     property="og:description"
     content="A showcase of Mischa Haenen's work, projects, and professional journey."
 />
-<meta property="og:url" content="[Your Portfolio URL]" />
+<meta property="og:url" content="https://mischahaenen.github.io/" />
 {
     ogImageUrl && (
         <meta property="og:image" content={`${info.baseUrl}${ogImageUrl}`} />
     )
 }
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.svg" />
 
 <meta name="generator" content={Astro.generator} />
+
+<link
+    href="http://fonts.googleapis.com/css?family=Lato"
+    rel="stylesheet preload"
+    as="style"
+    type="text/css"
+/>
+<link
+    href="http://fonts.googleapis.com/css?family=Montserrat"
+    rel="stylesheet preload"
+    as="style"
+    type="text/css"
+/>
