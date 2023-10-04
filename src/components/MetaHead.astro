@@ -1,5 +1,5 @@
 ---
-import { info } from '@data/info';
+import { info } from "@data/info";
 
 const { title, ogImageUrl } = Astro.props;
 ---
@@ -10,51 +10,48 @@ const { title, ogImageUrl } = Astro.props;
 {title && <title>{`${title} - ${info.name}`}</title>}
 {title && <meta name="title" content={`${title} - ${info.name}`} />}
 <meta
-    name="description"
-    content=`A showcase of ${info.name}'s work, projects, and professional journey. Web developer specializing in Angular.`
+  name="description"
+  content=`A showcase of ${info.name}'s work, projects, and professional journey. Web developer specializing in Angular.`
 />
 {info.about && <meta name="description" content={info.about} />}
 
 {
-    title && (
-        <meta
-            property="og:url"
-            content={`${info.baseUrl}${Astro.url.pathname}`}
-        />
-    )
+  title && (
+    <meta property="og:url" content={`${info.baseUrl}${Astro.url.pathname}`} />
+  )
 }
 {title && <meta property="og:title" content={`${title} - ${info.name}`} />}
 {info.about && <meta property="og:description" content={info.about} />}
 
 <meta
-    name="keywords"
-    content="web development, portfolio, Mischa Haenen, projects, programming"
+  name="keywords"
+  content="web development, portfolio, Mischa Haenen, projects, programming"
 />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Mischa Haenen's Portfolio" />
 <meta
-    property="og:description"
-    content="A showcase of Mischa Haenen's work, projects, and professional journey."
+  property="og:description"
+  content="A showcase of Mischa Haenen's work, projects, and professional journey."
 />
 <meta property="og:url" content="https://mischahaenen.github.io/" />
 {
-    ogImageUrl && (
-        <meta property="og:image" content={`${info.baseUrl}${ogImageUrl}`} />
-    )
+  ogImageUrl && (
+    <meta property="og:image" content={`${info.baseUrl}${ogImageUrl}`} />
+  )
 }
 <link rel="icon" href="/favicon.svg" />
 
 <meta name="generator" content={Astro.generator} />
 
 <link
-    href="http://fonts.googleapis.com/css?family=Lato"
-    rel="stylesheet preload"
-    as="style"
-    type="text/css"
+  href="http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900"
+  rel="stylesheet preload"
+  as="style"
+  type="text/css"
 />
 <link
-    href="http://fonts.googleapis.com/css?family=Montserrat"
-    rel="stylesheet preload"
-    as="style"
-    type="text/css"
+  href="http://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+  rel="stylesheet preload"
+  as="style"
+  type="text/css"
 />

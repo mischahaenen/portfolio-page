@@ -1,19 +1,19 @@
 :root {
-    --primary-bg-color: #ffffff;
-    --primary-text-color: #111111;
-    --primary-color: #82baff;
-    --primary-color-dark: #64a5f7;
-    --accent-color: #ebba60;
-    --accent-color-dark: #9e7221;
-    --primary-font: 'Lato', sans-serif;
-    --heading-font: 'Montserrat', sans-serif;
+  --primary-bg-color: #ffffff;
+  --primary-text-color: #111111;
+  --primary-color: #82baff;
+  --primary-color-dark: #64a5f7;
+  --accent-color: #ebba60;
+  --accent-color-dark: #9e7221;
+  --primary-font: "Lato", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
 }
 
 body {
-    font-family: var(--primary-font);
-    color: var(--primary-text-color);
-    background-color: var(--primary-bg-color);
-    line-height: 1.6;
+  font-family: var(--primary-font);
+  color: var(--primary-text-color);
+  background-color: var(--primary-bg-color);
+  line-height: 1.6;
 }
 
 h1,
@@ -22,36 +22,36 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--heading-font);
+  font-family: var(--heading-font);
 }
 
 p {
-    max-width: 75ch;
+  max-width: 75ch;
 }
 
 a {
-    color: var(--accent-color);
-    transition: color 0.3s ease;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--accent-color-dark);
+  color: var(--accent-color-dark);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --primary-bg-color: #111111;
-        --secondary-bg-color: #222;
-        --primary-text-color: #eaeaea;
-        --accent-color: #82baff;
-        --accent-color-dark: #64a5f7;
-        --primary-color: #ebba60;
-        --primary-color-dark: #9e7221;
-    }
+  :root {
+    --primary-bg-color: #111111;
+    --secondary-bg-color: #222;
+    --primary-text-color: #eaeaea;
+    --accent-color: #82baff;
+    --accent-color-dark: #64a5f7;
+    --primary-color: #ebba60;
+    --primary-color-dark: #9e7221;
+  }
 }

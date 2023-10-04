@@ -1,24 +1,31 @@
 ---
-import { info } from '@data/info';
+import { info } from "@data/info";
 
-import Layout from '@layouts/Layout.astro';
-import Hero from '@components/Hero.astro';
-import MetaHead from '@components/MetaHead.astro';
-import '../styles/index.css';
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero.astro";
+import Experience from "@components/Experience.astro";
+import MetaHead from "@components/MetaHead.astro";
+import "../styles/index.css";
 ---
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <MetaHead
-            title={'Portfolio'}
-            ogImageUrl={'assets/images/profile.webp'}
-        />
-    </head>
+  <head>
+    <MetaHead title={"Portfolio"} ogImageUrl={"assets/images/profile.webp"} />
+  </head>
 
-    <body>
-        <Layout>
-            <Hero name={info.name} about={info.about} />
-        </Layout>
-    </body>
+  <body>
+    <Layout>
+      <Hero name={info.name} about={info.about} />
+      <Experience
+        title="Professional"
+        experience={info.professionalExperience}
+      />
+      <Experience title="Education" experience={info.education} />
+      <Experience
+        title="Skills & Certificates"
+        experience={info.skillsAndCertificates}
+      />
+    </Layout>
+  </body>
 </html>

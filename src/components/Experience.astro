@@ -1,0 +1,76 @@
+---
+import type { Experience } from "../types/CiriculumVitae";
+
+interface Props {
+  title: string;
+  experience: Experience[];
+}
+
+const { title, experience } = Astro.props as Props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <div class="experience__list">
+    {
+      experience.map((experience) => (
+        <div class="experience__item">
+          <div class="experience__header">
+            <h3>{experience.name}</h3>
+            <p>
+              {experience.startDate} - {experience.endDate}
+            </p>
+          </div>
+          <p>{experience.location}</p>
+          <ul>
+            {experience.description.map((description) => (
+              <li>{description}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>
+<style lang="scss">
+  section {
+    display: flex;
+    gap: 4rem;
+  }
+  h2 {
+    margin-top: 4rem;
+    margin-bottom: 0;
+    width: 11rem;
+    line-height: normal;
+  }
+  .experience__list {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  .experience__item {
+    margin-block: 2rem;
+
+    li {
+      color: #b6b6b6;
+    }
+  }
+  .experience__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-color);
+    & > * {
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .experience__item {
+      margin-block: 1rem;
+    }
+  }
+</style>
