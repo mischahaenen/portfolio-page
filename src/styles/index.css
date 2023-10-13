@@ -1,10 +1,12 @@
 :root {
-  --primary-bg-color: #ffffff;
+  --primary-bg-color: #f4fdff;
+  --secondary-bg-color: #ffffff;
   --primary-text-color: #111111;
-  --primary-color: #82baff;
-  --primary-color-dark: #64a5f7;
-  --accent-color: #ebba60;
-  --accent-color-dark: #9e7221;
+  --primary-color-dark: #938ba1;
+  --primary-color: #1c448e;
+  --accent-color-dark: #e69400;
+  --accent-color: #996300;
+  --grey-color: #373737;
   --primary-font: "Lato", sans-serif;
   --heading-font: "Montserrat", sans-serif;
 }
@@ -52,6 +54,7 @@ a:hover {
     --accent-color: #82baff;
     --accent-color-dark: #64a5f7;
     --primary-color: #ebba60;
+    --grey-color: #b6b6b6;
     --primary-color-dark: #9e7221;
   }
 }

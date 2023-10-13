@@ -2,7 +2,7 @@ export interface Experience {
   name: string;
   role: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   location: string;
   description: string[];
 }
@@ -28,7 +28,7 @@ export interface CiriculumVitae {
   education: Experience[];
   skillsAndCertificates: Experience[];
   languages: Language[];
-  technologies: string[];
+  technologies: Language[];
   tools: string[];
   socialMedia: SocialMedia;
 }

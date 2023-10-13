@@ -21,7 +21,7 @@ const { title, experience } = Astro.props as Props;
               {experience.startDate} - {experience.endDate}
             </p>
           </div>
-          <p>{experience.location}</p>
+          {!!experience.role && <p>{experience.role}</p>}
           <ul>
             {experience.description.map((description) => (
               <li>{description}</li>
@@ -51,7 +51,7 @@ const { title, experience } = Astro.props as Props;
     margin-block: 2rem;
 
     li {
-      color: #b6b6b6;
+      color: var(--grey-color);
     }
   }
   .experience__header {

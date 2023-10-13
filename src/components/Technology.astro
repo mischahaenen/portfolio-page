@@ -1,0 +1,83 @@
+---
+import type { Language } from "../types/CiriculumVitae";
+
+interface Props {
+  title: string;
+  technologies: Language[];
+}
+
+import { Image } from "astro:assets";
+const { title, technologies } = Astro.props as Props;
+---
+
+<section>
+  <h2>{title}</h2>
+  <ul class="card__list">
+    {
+      technologies.map((tech) => (
+        <li class="card">
+          <Image
+            src={`/assets/svg/${tech.language}.svg`}
+            alt={tech.language}
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <div>
+            <h3>{tech.language}</h3>
+            <p>{tech.proficiency}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<style lang="scss">
+  h2 {
+    margin-top: 4rem;
+  }
+  .card__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+    gap: 2rem;
+    padding-left: 0;
+  }
+
+  .card {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: start;
+    background: var(--secondary-bg-color);
+    border-radius: 10px;
+    padding: 1rem;
+
+    h3,
+    p {
+      margin: 0;
+    }
+
+    p {
+      color: var(--grey-color);
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .card__list {
+      grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      padding: 0.5rem;
+      gap: 0;
+      h3,
+      p {
+        display: none;
+      }
+    }
+  }
+</style>

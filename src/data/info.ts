@@ -1,63 +1,83 @@
-import type { CiriculumVitae } from "src/types/CiriculumVitae";
+import type { CiriculumVitae } from "../types/CiriculumVitae";
 
 export const info: CiriculumVitae = {
   baseUrl: "https://mischahaenen.github.io/",
   name: "Mischa Haenen",
-  jobDescription: "Software Engineer Frontend",
-  about: `I am a curious and inquisitive software developer. I am particularly interested in front-end software development,
-    interaction design, and the human factor in development. I have experience in education, project management, and software development.
-    Furthermore, the topic of generation management is very important to me, and I personally try to promote intercultural and intergenerational teams.`,
+  jobDescription: "Lead Frontend Software Engineer",
+  about: `As a passionate software developer, my focus lies in front-end software development, interaction design, and understanding the human perspective in the development process. With a background in education and project management, I emphasize the importance of intercultural and intergenerational teams, fostering an environment where generation management thrives.`,
   professionalExperience: [
     {
-      name: "login AG",
-      role: "Software Engineer EFZ application development",
-      startDate: "2015",
-      endDate: "2019",
+      name: "mimacom AG",
+      role: "Software Engineer Professional (60%)",
+      startDate: "Currently",
       location: "Bern, Switzerland",
       description: [
-        `I completed my apprenticeship at login Berufsbildung AG with a part-time Matura.`,
-        `I developed my skills in many areas and was able to focus on the front-end.`,
-        `During this time, I was also able to obtain a Scrum Master certification.`,
+        `As the lead of the Frontend Guild at mimacom AG, I play a pivotal role in setting the direction for frontend development and best practices.`,
+        `My responsibilities extend to being the Frontend Architect for the ISAK Project, ensuring the project's frontend architecture is robust and scalable.`,
+        `In addition to my technical roles, I provide consulting services in the frontend domain, assisting teams and clients in optimizing their frontend strategies.`,
+        `My tenure at mimacom has further solidified my frontend expertise. I've been actively involved in various customer projects, donning multiple hats ranging from a developer and interaction designer to an architect.`,
       ],
     },
     {
       name: "SBB AG",
-      role: "Software Engineer, various roles",
+      role: "DevOps Software Engineer (100%)",
       startDate: "2019",
       endDate: "2022",
       location: "Bern, Switzerland",
       description: [
-        `As a member of the "Kurzauftragsteam" of SBB AG I not only develop in the frontend, backend, and mobile, but also accept customer requests and accompany our internal customers throughout the entire project process.`,
-        `In my job, I have deepened my skills in frontend and I am the leader of the Frontend Guild. I work in different customer projects and take different roles like developer, interaction designer, or architect.`,
+        `At SBB AG, I worked within the "Kurzauftragsteam", where I took on versatile roles ranging from frontend and backend development to mobile app design.`,
+        `In addition to development, I was responsible for handling customer requests and guiding our internal clients throughout the entire project lifecycle.`,
+      ],
+    },
+    {
+      name: "login AG",
+      role: "Apprentice Software Engineer & Scrum Master (100%)",
+      startDate: "2015",
+      endDate: "2019",
+      location: "Bern, Switzerland",
+      description: [
+        `I undertook my apprenticeship at login Berufsbildung AG, complemented by a part-time Matura.`,
+        `During this tenure, I sharpened my skills across domains, with a special emphasis on front-end development.`,
+        `I also acquired a Scrum Master certification, enhancing my expertise in agile methodologies and team collaboration.`,
       ],
     },
   ],
 
   education: [
     {
-      name: "GIBB",
-      role: "Software Engineer EFZ with vocational baccalaureate",
-      startDate: "2015",
-      endDate: "2019",
-      location: "Bern, Switzerland",
-      description: [
-        `During my apprenticeship as an EFZ computer scientist,`,
-        `I completed the vocational baccalaureate.`,
-      ],
-    },
-    {
       name: "Bachelor of Science Business Information Technology",
-      role: "",
+      role: "Focus on Software Architecture",
       startDate: "2021",
       endDate: "2025",
       location: "Bern, Switzerland",
       description: [
-        `With the Bachelor of Science Business Information Technology, I'm immersing myself in software architecture and design.`,
+        `Pursuing a Bachelor of Science in Business Information Technology, I am delving deep into the realms of software architecture and design, equipping myself with the knowledge to build robust and scalable software solutions.`,
+      ],
+    },
+    {
+      name: "GIBB",
+      role: "Software Engineer EFZ with Vocational Baccalaureate",
+      startDate: "Currently",
+      location: "Bern, Switzerland",
+      description: [
+        `During my apprenticeship, I completed the vocational baccalaureate, laying a strong foundation for my future endeavors in software engineering.`,
       ],
     },
   ],
 
   skillsAndCertificates: [
+    {
+      name: "IREB Requirements Engineer - Foundation Level",
+      role: "",
+      startDate: "2023",
+      endDate: "2023",
+      location: "Bern, Switzerland",
+      description: [
+        `In 2023, I undertook the IREB Requirements Engineer training at the Foundation Level.`,
+        `This training fortified my knowledge in requirements engineering. It has equipped me with a solid understanding of crafting precise requirements and the nuances to consider throughout the process.`,
+        `This expertise has significantly elevated the quality of my contributions in projects.`,
+      ],
+    },
     {
       name: "ISAQB Certified Professional for Software Architecture - Foundation Level",
       role: "",
@@ -65,9 +85,20 @@ export const info: CiriculumVitae = {
       endDate: "2021",
       location: "Bern, Switzerland",
       description: [
-        `After my training at login Ag in 2021,`,
-        `I completed the ISAQB certification for Software Architecture - Foundation Level.`,
-        `With this training I wanted to consolidate my knowledge and have benefited from it in the future by being able to create architecture concepts in a well-founded way and my programme code also became better as a result.`,
+        `Post my training at login AG, I accomplished the ISAQB certification in Software Architecture at the Foundation Level.`,
+        `This certification empowered me with the skills to conceptualize well-founded architecture designs, subsequently improving the quality and robustness of my codebase.`,
+      ],
+    },
+    {
+      name: "Leadership 1 - SVF",
+      role: "",
+      startDate: "2020",
+      endDate: "2020",
+      location: "Bern, Switzerland",
+      description: [
+        `During my NCO training in the military in 2020, I achieved the Leadership 1 certification.`,
+        `This certification not only benefited the recruits I trained but has also enriched my professional life. I employ didactic and methodological approaches to articulate my ideas and explanations.`,
+        `Additionally, with a decade of experience leading scouts, I've not only mentored young individuals but also guided my peers in planning and executing camps and activities.`,
       ],
     },
     {
@@ -77,14 +108,14 @@ export const info: CiriculumVitae = {
       endDate: "2018",
       location: "Bern, Switzerland",
       description: [
-        `During my training at login AG in 2018, I was able to acquire certification as a Scrum Master.`,
-        `The aim was to take on a lead role in learning teams and to communicate with stakeholders.`,
-        `Through this training, I was able to learn in-depth knowledge of agile collaboration.`,
+        `In 2018, during my tenure at login AG, I achieved the Scrum Master certification.`,
+        `The certification enriched me with profound insights into agile collaboration, enabling me to lead teams effectively and streamline stakeholder communication.`,
       ],
     },
   ],
 
   languages: [
+    { language: "Swiss German", proficiency: "C2" },
     { language: "German", proficiency: "C2" },
     { language: "Dutch", proficiency: "C2" },
     { language: "English", proficiency: "B2" },
@@ -92,23 +123,21 @@ export const info: CiriculumVitae = {
   ],
 
   technologies: [
-    "Angular",
-    "Vue",
-    "React",
-    "Next.js",
-    "Nuxt3",
-    "HTML",
-    "CSS",
-    "Bootstrap",
-    "Jasmine",
-    "Javascript",
-    "Typescript",
-    "Webpack",
-    "Vite",
-    "REST",
-    "Flowable Platform",
-    "Dart",
-    "Flutter",
+    { language: "Angular", proficiency: "Expert" },
+    { language: "Vue", proficiency: "Advanced" },
+    { language: "React", proficiency: "Intermediate" },
+    { language: "Nuxt3", proficiency: "Advanced" },
+    { language: "Astro", proficiency: "Intermediate" },
+    { language: "HTML", proficiency: "Expert" },
+    { language: "CSS", proficiency: "Expert" },
+    { language: "TailwindCSS", proficiency: "Advanced" },
+    { language: "Jest", proficiency: "Intermediate" },
+    { language: "Javascript", proficiency: "Expert" },
+    { language: "Typescript", proficiency: "Expert" },
+    { language: "Vite", proficiency: "Advanced" },
+    { language: "Dart", proficiency: "Intermediate" },
+    { language: "Flutter", proficiency: "Intermediate" },
+    { language: "Fortran", proficiency: "None" },
   ],
 
   tools: [

@@ -1,10 +1,20 @@
 ---
 import Footer from "@components/Footer.astro";
+import MetaHead from "@components/MetaHead.astro";
 import Navbar from "@components/Navbar.astro";
 ---
 
-<Navbar />
-<main class="container">
-  <slot />
-</main>
-<Footer />
+<!doctype html>
+<html lang="en">
+  <head>
+    <MetaHead title={"Portfolio"} ogImageUrl={"assets/images/profile.webp"} />
+  </head>
+
+  <body>
+    <Navbar />
+    <main class="container">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
