@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 const { name, about } = Astro.props;
+import image from "../../public/assets/images/profile.jpg";
 ---
 
 <section class="two__column">
@@ -9,8 +10,14 @@ const { name, about } = Astro.props;
     <h1>{name}</h1>
     <p>{about}</p>
   </div>
-  <Image class="profile__image" src="/assets/images/profile.webp" alt="Profile image of Mischa Haenen" width="300" height="300" 
-  loading="lazy"/>
+  <Image
+    class="profile__image"
+    src={image}
+    alt="Profile image of Mischa Haenen"
+    width="300"
+    height="300"
+    loading="lazy"
+  />
 </section>
 
 <style>

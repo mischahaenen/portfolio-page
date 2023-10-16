@@ -2,12 +2,14 @@
 import Footer from "@components/Footer.astro";
 import MetaHead from "@components/MetaHead.astro";
 import Navbar from "@components/Navbar.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <MetaHead title={"Portfolio"} ogImageUrl={"assets/images/profile.webp"} />
+    <ViewTransitions />
   </head>
 
   <body>

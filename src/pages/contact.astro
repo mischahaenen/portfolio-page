@@ -1,0 +1,24 @@
+---
+import { info } from "@data/info";
+import Layout from "@layouts/Layout.astro";
+import "../styles/index.css";
+---
+
+<Layout>
+  <h1>Let's get in touch!</h1>
+  <form>
+    <label>
+      Name:
+      <input type="text" name="name" required />
+    </label>
+    <label>
+      Email:
+      <input type="email" name="email" required />
+    </label>
+    <label>
+      Message:
+      <textarea name="message" required minlength="6"></textarea>
+    </label>
+    <button>Submit</button>
+  </form>
+</Layout>

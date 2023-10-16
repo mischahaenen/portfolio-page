@@ -47,8 +47,7 @@ export const info: CiriculumVitae = {
     {
       name: "Bachelor of Science Business Information Technology",
       role: "Focus on Software Architecture",
-      startDate: "2021",
-      endDate: "2025",
+      startDate: "Currently",
       location: "Bern, Switzerland",
       description: [
         `Pursuing a Bachelor of Science in Business Information Technology, I am delving deep into the realms of software architecture and design, equipping myself with the knowledge to build robust and scalable software solutions.`,
@@ -57,7 +56,8 @@ export const info: CiriculumVitae = {
     {
       name: "GIBB",
       role: "Software Engineer EFZ with Vocational Baccalaureate",
-      startDate: "Currently",
+      startDate: "2015",
+      endDate: "2019",
       location: "Bern, Switzerland",
       description: [
         `During my apprenticeship, I completed the vocational baccalaureate, laying a strong foundation for my future endeavors in software engineering.`,

@@ -1,12 +1,12 @@
 ---
 import type { Language } from "../types/CiriculumVitae";
+import { Image } from "astro:assets";
 
 interface Props {
   title: string;
   technologies: Language[];
 }
 
-import { Image } from "astro:assets";
 const { title, technologies } = Astro.props as Props;
 ---
 
@@ -23,7 +23,7 @@ const { title, technologies } = Astro.props as Props;
             height="50"
             loading="lazy"
           />
-          <div>
+          <div class="card__description">
             <h3>{tech.language}</h3>
             <p>{tech.proficiency}</p>
           </div>
@@ -51,13 +51,11 @@ const { title, technologies } = Astro.props as Props;
     background: var(--secondary-bg-color);
     border-radius: 10px;
     padding: 1rem;
-
-    h3,
-    p {
+    .card__description > * {
       margin: 0;
     }
 
-    p {
+    .card__description p {
       color: var(--grey-color);
     }
 
@@ -73,9 +71,9 @@ const { title, technologies } = Astro.props as Props;
     }
     .card {
       padding: 0.5rem;
+      justify-content: center;
       gap: 0;
-      h3,
-      p {
+      .card__description {
         display: none;
       }
     }

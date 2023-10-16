@@ -1,14 +1,48 @@
 ---
 import { info } from "src/data/info";
+import { Image } from "astro:assets";
+import logo from "../../public/favicon.svg";
 ---
 
 <header>
-  <a href="/">{info.name}.</a>
+  <a href="/"><Image class="header__logo" src={logo} alt="logo" width="75" /></a
+  >
   <nav>
-    <ul>
-      <li>Projects</li>
-      <li>Contact</li>
-      <li>Game</li>
+    <ul class="navbar">
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
 </header>
+
+<style lang="scss">
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .navbar {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      padding: 1rem;
+
+      .header__logo {
+        width: 50px;
+        height: auto;
+      }
+    }
+  }
+</style>
