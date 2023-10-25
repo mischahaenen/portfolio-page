@@ -37,8 +37,9 @@ const { title, technologies } = Astro.props as Props;
     margin-top: 4rem;
   }
   .card__list {
+    --card-width: 14rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
     gap: 2rem;
     padding-left: 0;
   }
@@ -51,6 +52,7 @@ const { title, technologies } = Astro.props as Props;
     background: var(--secondary-bg-color);
     border-radius: 10px;
     padding: 1rem;
+    transition: all 0.3s ease-in-out;
     .card__description > * {
       margin: 0;
     }
@@ -66,7 +68,7 @@ const { title, technologies } = Astro.props as Props;
 
   @media screen and (max-width: 640px) {
     .card__list {
-      grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+      --card-width: 4rem;
       gap: 1rem;
     }
     .card {
