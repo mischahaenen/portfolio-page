@@ -15,62 +15,90 @@ const { title, experience } = Astro.props as Props;
     {
       experience.map((experience) => (
         <div class="experience__item">
-          <div class="experience__header">
-            <h3>{experience.name}</h3>
-            <p>
-              {experience.startDate} - {experience.endDate}
-            </p>
+          <p class="experience__duration">
+            {experience.startDate}
+            {!!experience.endDate && ` - ${experience.endDate}`}
+          </p>
+          <div class="experience__content">
+            <h3>
+              {experience.role}
+              {!!experience.name && ` · ${experience.name}`}
+            </h3>
+            <p>{experience.description}</p>
+            {!!experience.technologies && (
+              <ul>
+                {experience.technologies.map((technology) => (
+                  <li>{technology}</li>
+                ))}
+              </ul>
+            )}
           </div>
-          {!!experience.role && <p>{experience.role}</p>}
-          <ul>
-            {experience.description.map((description) => (
-              <li>{description}</li>
-            ))}
-          </ul>
         </div>
       ))
     }
   </div>
 </section>
-<style lang="scss">
-  section {
-    display: flex;
-    gap: 4rem;
-  }
-  h2 {
-    margin-top: 4rem;
-    margin-bottom: 0;
-    width: 11rem;
-    line-height: normal;
-  }
-  .experience__list {
-    margin-top: 2rem;
-    width: 100%;
-  }
-  .experience__item {
-    margin-block: 2rem;
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("experience__item--hidden");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 1,
+      },
+    );
 
-    li {
-      color: var(--grey-color);
-    }
-  }
-  .experience__header {
+    document.querySelectorAll(".experience__item").forEach((item) => {
+      item.classList.add("experience__item--hidden");
+      observer.observe(item);
+    });
+  });
+</script>
+<style lang="scss">
+  .experience__item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-block: 2rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+  }
+  .experience__item--hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+  }
+
+  .experience__duration {
+    margin-top: 0;
+    color: var(--primary-color-dark);
+    min-width: 8rem;
+  }
+  .experience__content p {
+    color: var(--grey-color);
+  }
+
+  .experience__content h3 {
+    margin-top: 0;
     color: var(--primary-color);
-    & > * {
-      margin: 0;
-    }
   }
 
   @media screen and (max-width: 768px) {
-    section {
-      flex-direction: column;
-      gap: 1rem;
-    }
     .experience__item {
       margin-block: 1rem;
+      flex-direction: column;
+      gap: 0;
     }
   }
 </style>

@@ -4,7 +4,8 @@ export interface Experience {
   startDate: string;
   endDate?: string;
   location: string;
-  description: string[];
+  description: string;
+  technologies?: string[];
 }
 
 export interface Language {
