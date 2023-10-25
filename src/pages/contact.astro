@@ -5,6 +5,7 @@ import "../styles/index.css";
 import Layout from "@layouts/Layout.astro";
 
 sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
+console.log(import.meta.env.SENDGRID_API_KEY || "No API Key found");
 const errors = { name: "", email: "", subject: "", message: "" };
 let formSubmittedSuccessfully = false;
 //Source: https://docs.astro.build/en/recipes/build-forms/
