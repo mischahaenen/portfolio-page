@@ -1,11 +1,10 @@
+/* Palette: https://colorhunt.co/palette/0c356a0174beffc436fff0ce */
 :root {
-  --primary-bg-color: #f4fdff;
-  --secondary-bg-color: #ffffff;
   --primary-text-color: #111111;
-  --primary-color-dark: #938ba1;
-  --primary-color: #1c448e;
-  --accent-color-dark: #e69400;
-  --accent-color: #996300;
+  --primary-color: #3876bf;
+  --primary-color-dark: #192655;
+  --accent-color: #f3f0ca;
+  --accent-color-dark: #e1aa74;
   --grey-color: #373737;
   --primary-font: "Lato", sans-serif;
   --heading-font: "Montserrat", sans-serif;
@@ -14,7 +13,6 @@
 body {
   font-family: var(--primary-font);
   color: var(--primary-text-color);
-  background-color: var(--primary-bg-color);
   line-height: 1.6;
 }
 
@@ -25,6 +23,7 @@ h4,
 h5,
 h6 {
   font-family: var(--heading-font);
+  color: var(--primary-color-dark);
 }
 
 p {
@@ -32,12 +31,12 @@ p {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--primary-color-dark);
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: var(--accent-color-dark);
+  color: var(--primary-color);
 }
 
 .container {
@@ -48,13 +47,11 @@ a:hover {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-bg-color: #111111;
-    --secondary-bg-color: #222;
     --primary-text-color: #eaeaea;
-    --accent-color: #82baff;
-    --accent-color-dark: #64a5f7;
-    --primary-color: #ebba60;
+    --accent-color: #192655;
+    --accent-color-dark: #3876bf;
+    --primary-color: #e1aa74;
+    --primary-color-dark: #f3f0ca;
     --grey-color: #b6b6b6;
-    --primary-color-dark: #9e7221;
   }
 }

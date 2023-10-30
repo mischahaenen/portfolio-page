@@ -26,7 +26,7 @@ const { title, experience } = Astro.props as Props;
             </h3>
             <p>{experience.description}</p>
             {!!experience.technologies && (
-              <ul>
+              <ul aria-label="Used technologies:">
                 {experience.technologies.map((technology) => (
                   <li>{technology}</li>
                 ))}
@@ -72,6 +72,7 @@ const { title, experience } = Astro.props as Props;
       opacity 0.3s ease-out,
       transform 0.3s ease-out;
   }
+
   .experience__item--hidden {
     opacity: 0;
     transform: translateY(50px);
@@ -85,13 +86,32 @@ const { title, experience } = Astro.props as Props;
     color: var(--primary-color-dark);
     min-width: 8rem;
   }
+
+  .experience__content h3 {
+    margin-top: 0;
+    color: var(--primary-color-dark);
+  }
+
   .experience__content p {
     color: var(--grey-color);
   }
 
-  .experience__content h3 {
-    margin-top: 0;
-    color: var(--primary-color);
+  .experience__content ul {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-left: 0;
+
+    li {
+      background-color: color-mix(
+        in srgb,
+        var(--accent-color-dark) 20%,
+        transparent
+      );
+      padding: 0.125rem 0.5rem;
+      border-radius: 50px;
+      list-style-type: none;
+    }
   }
 
   @media screen and (max-width: 768px) {

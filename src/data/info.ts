@@ -15,6 +15,16 @@ export const info: CiriculumVitae = {
         My responsibilities extend to being the Frontend Architect for the ISAK Project, ensuring the project's frontend architecture is robust and scalable.
         In addition to my technical roles, I provide consulting services in the frontend domain, assisting teams and clients in optimizing their frontend strategies.
         My tenure at mimacom has further solidified my frontend expertise. I've been actively involved in various customer projects, donning multiple hats ranging from a developer and interaction designer to an architect.`,
+      technologies: [
+        "JavaScript",
+        "TypeScript",
+        "HTML",
+        "CSS",
+        "Angular",
+        "React",
+        "Nx",
+        "Java",
+      ],
     },
     {
       name: "SBB AG",
@@ -24,6 +34,15 @@ export const info: CiriculumVitae = {
       location: "Bern, Switzerland",
       description: `At SBB AG, I worked within the "Kurzauftragsteam", where I took on versatile roles ranging from frontend and backend development to mobile app design. 
         In addition to development, I was responsible for handling customer requests and guiding our internal clients throughout the entire project lifecycle.`,
+      technologies: [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Angular",
+        "Holacracy",
+        "Flutter",
+        "Java",
+      ],
     },
     {
       name: "login AG",
@@ -34,6 +53,7 @@ export const info: CiriculumVitae = {
       description: `I undertook my apprenticeship at login Berufsbildung AG, complemented by a part-time Matura.
         During this tenure, I sharpened my skills across domains, with a special emphasis on front-end development.
         I also acquired a Scrum Master certification, enhancing my expertise in agile methodologies and team collaboration.`,
+      technologies: ["JavaScript", "HTML", "CSS", "Angular", "Hermes", "Scrum"],
     },
   ],
 
@@ -135,7 +155,6 @@ export const info: CiriculumVitae = {
 
   socialMedia: {
     email: "mischahaenen@gmail.com",
-    phone: "+41 77 494 24 49",
     linkedin: "https://www.linkedin.com/in/mischa-haenen-9ab11810a",
     github: "https://github.com/mischahaenen",
   },

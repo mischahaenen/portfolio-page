@@ -10,6 +10,19 @@ import { ViewTransitions } from "astro:transitions";
   <head>
     <MetaHead title={"Portfolio"} ogImageUrl={"assets/images/profile.webp"} />
     <ViewTransitions />
+    <style>
+      body {
+        --gradient-x: 50%;
+        --gradient-y: 50%;
+        background: radial-gradient(
+            500px at var(--gradient-x) var(--gradient-y),
+            color-mix(in srgb, var(--accent-color-dark) 20%, transparent),
+            transparent 90%
+          ),
+          var(--accent-color);
+        transition: background 0.2s;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,5 +31,13 @@ import { ViewTransitions } from "astro:transitions";
       <slot />
     </main>
     <Footer />
+    <script>
+      document.addEventListener("mousemove", (e) => {
+        const x = e.clientX;
+        const y = e.clientY + window.scrollY;
+        document.body.style.setProperty("--gradient-x", `${x}px`);
+        document.body.style.setProperty("--gradient-y", `${y}px`);
+      });
+    </script>
   </body>
 </html>

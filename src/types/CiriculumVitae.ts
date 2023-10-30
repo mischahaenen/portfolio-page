@@ -15,7 +15,6 @@ export interface Language {
 
 export interface SocialMedia {
   email: string;
-  phone: string;
   linkedin: string;
   github: string;
 }

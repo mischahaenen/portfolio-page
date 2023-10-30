@@ -28,8 +28,8 @@ import image from "../../public/assets/images/profile.jpg";
     margin: 0;
     background: linear-gradient(
       90deg,
-      var(--primary-color),
-      var(--accent-color)
+      var(--primary-color-dark),
+      var(--accent-color-dark)
     );
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -49,6 +49,7 @@ import image from "../../public/assets/images/profile.jpg";
 
   .profile__image {
     border-radius: 50%;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
   }
