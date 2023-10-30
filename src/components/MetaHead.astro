@@ -33,18 +33,21 @@ const { title, ogImageUrl } = Astro.props;
   property="og:description"
   content="A showcase of Mischa Haenen's work, projects, and professional journey."
 />
-<meta property="og:url" content="https://mischahaenen.github.io/" />
+<meta
+  property="og:url"
+  content="https://mischahaenen.github.io/portfolio-page/"
+/>
 {
   ogImageUrl && (
     <meta property="og:image" content={`${info.baseUrl}${ogImageUrl}`} />
   )
 }
-<link rel="icon" href="/favicon.svg" />
+<link rel="icon" href="/portfolio-page/favicon.svg" />
 
 <meta name="generator" content={Astro.generator} />
 
 <link
-  href="http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900&display=swap"
+  href="/portfolio-pagehttp://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900&display=swap"
   rel="stylesheet preload"
   as="style"
   type="text/css"
