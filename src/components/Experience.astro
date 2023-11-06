@@ -38,7 +38,7 @@ const { title, experience } = Astro.props as Props;
     }
   </div>
 </section>
-<script>
+<script type="module">
   const initializeObserver = () => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -59,8 +59,7 @@ const { title, experience } = Astro.props as Props;
       observer.observe(item);
     });
   };
-
-  document.addEventListener("DOMContentLoaded", initializeObserver);
+  initializeObserver();
 </script>
 <style lang="scss">
   .experience__item {

@@ -32,8 +32,8 @@ const { title, technologies } = Astro.props as Props;
     }
   </ul>
 </section>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
+<script type="module">
+  const initializeObserver = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,7 +52,9 @@ const { title, technologies } = Astro.props as Props;
       card.classList.add("card--hidden");
       observer.observe(card);
     });
-  });
+  };
+
+  initializeObserver();
 </script>
 <style lang="scss">
   h2 {

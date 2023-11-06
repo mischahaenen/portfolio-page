@@ -1,59 +1,9 @@
 ---
-import sendGrid from "@sendgrid/mail";
-import { POST } from "../api/recaptcha";
 import "../../styles/index.css";
 import "../../styles/contact.scss";
 import Layout from "@layouts/Layout.astro";
 
-sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
-
-const getFormValue = (data: FormData, key: string): string => {
-  return data.get(key)?.toString() || "";
-};
-
-const handleFormSubmission = async (request: Request) => {
-  const errors = { name: "", email: "", subject: "", message: "" };
-  let formSubmittedSuccessfully = false;
-  if (request.method === "POST") {
-    try {
-      const data = await request.formData();
-      const name = getFormValue(data, "name");
-      const email = getFormValue(data, "email");
-      const subject = getFormValue(data, "subject");
-      const message = getFormValue(data, "message");
-      const token = getFormValue(data, "g-recaptcha-response");
-      const response = await POST({ token });
-
-      if (!name) errors.name = "Bitte gebe einen Namen an.";
-      if (!email) errors.email = "Deine Emailadresse scheint ungütig zu sein.";
-      if (!subject) errors.subject = "Bitte gebe einen Betreff an.";
-      if (!message || message.length < 6)
-        errors.message = "Deine Nachricht muss mindestens 6 Zeichen enthalten.";
-      const res = await response.json();
-
-      if (response.status !== 200 || res.score < 0.5) {
-        errors.message +=
-          " Bitte überzeuge mich, dass du keinen Roboter bist. 🤖";
-      }
-
-      if (Object.values(errors).every((error) => error === "")) {
-        formSubmittedSuccessfully = true;
-        const msg = {
-          to: "mischahaenen@gmail.com",
-          from: "hello@mischahaenen.ch",
-          replyTo: { email, name },
-          subject: `Nachricht von ${name}`,
-          text: `${subject}\n\n${message}\n\nFreundliche Grüsse\n${name}\n\n\nRecaptcha Punkte: ${res.score}`,
-        };
-        await sendGrid.send(msg).catch(console.error);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  return { errors, formSubmittedSuccessfully };
-};
+import { handleFormSubmission } from "../api/FormHandler.ts";
 
 const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
   Astro.request,

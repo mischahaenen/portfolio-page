@@ -1,58 +1,8 @@
 ---
-import sendGrid from "@sendgrid/mail";
-import { POST } from "../api/recaptcha";
 import "../../styles/index.css";
 import "../../styles/contact.scss";
 import Layout from "@layouts/Layout.astro";
-
-sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
-
-const getFormValue = (data: FormData, key: string): string => {
-  return data.get(key)?.toString() || "";
-};
-
-const handleFormSubmission = async (request: Request) => {
-  const errors = { name: "", email: "", subject: "", message: "" };
-  let formSubmittedSuccessfully = false;
-  if (request.method === "POST") {
-    try {
-      const data = await request.formData();
-      const name = getFormValue(data, "name");
-      const email = getFormValue(data, "email");
-      const subject = getFormValue(data, "subject");
-      const message = getFormValue(data, "message");
-      const token = getFormValue(data, "g-recaptcha-response");
-      const response = await POST({ token });
-
-      if (!name) errors.name = "Gib bitte ä ächte Name a.";
-      if (!email) errors.email = "Dis Email isch äuä nid ganz korrekt";
-      if (!subject) errors.subject = "Bitte gib doch ä beträff ah.";
-      if (!message || message.length < 6)
-        errors.message = "Mit weniger aus 6 Zeiche chani nid viu ahfah. 🥲";
-      const res = await response.json();
-
-      if (response.status !== 200 || res.score < 0.5) {
-        errors.message += " Bisch dr sicher, das de ke Roboter bisch? 🤖";
-      }
-
-      if (Object.values(errors).every((error) => error === "")) {
-        formSubmittedSuccessfully = true;
-        const msg = {
-          to: "mischahaenen@gmail.com",
-          from: "hello@mischahaenen.ch",
-          replyTo: { email, name },
-          subject: `Nachricht vo ${name}`,
-          text: `${subject}\n\n${message}\n\nLiebi Grüsse\n${name}\n\n\nRecaptcha Pünkt: ${res.score}`,
-        };
-        await sendGrid.send(msg).catch(console.error);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  return { errors, formSubmittedSuccessfully };
-};
+import { handleFormSubmission } from "../api/FormHandler.ts";
 
 const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
   Astro.request,
