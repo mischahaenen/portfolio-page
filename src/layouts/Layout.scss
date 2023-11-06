@@ -1,0 +1,13 @@
+body {
+  --gradient-x: 50%;
+  --gradient-y: 50%;
+  background: radial-gradient(
+      500px at var(--gradient-x) var(--gradient-y),
+      color-mix(in srgb, var(--accent-color-dark) 20%, transparent),
+      transparent 80%
+    ),
+    var(--accent-color);
+  transition: background 0.2s;
+  min-height: 100vh;
+  margin: 0;
+}

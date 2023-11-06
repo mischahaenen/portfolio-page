@@ -1,16 +1,30 @@
 ---
-import { info } from "src/data/info";
 import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "@i18n/utils";
 import logo from "../../public/favicon.svg";
+import LanguagePicker from "./LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header>
-  <a href="/"><Image class="header__logo" src={logo} alt="logo" width="75" /></a
+  <a href={`/${lang}/`}
+    ><Image class="header__logo" src={logo} alt="logo" width="75" /></a
   >
   <nav>
     <ul class="navbar">
-      <li><a href="/">Home</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <LanguagePicker />
+      <li>
+        <a href={`/${lang}/`}>
+          {t("nav.home")}
+        </a>
+      </li>
+      <li>
+        <a href={`/${lang}/contact/`}>
+          {t("nav.contact")}
+        </a>
+      </li>
     </ul>
   </nav>
 </header>
@@ -31,7 +45,10 @@ import logo from "../../public/favicon.svg";
   .navbar {
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
+    justify-content: end;
     gap: 2rem;
+    padding-left: 0;
   }
 
   @media (max-width: 768px) {

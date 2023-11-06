@@ -1,19 +1,26 @@
 import type { CiriculumVitae } from "../types/CiriculumVitae";
 
 export const info: CiriculumVitae = {
-  baseUrl: "https://mischahaenen.github.io/",
+  baseUrl: "https://mischahaenen.ch",
   name: "Mischa Haenen",
-  jobDescription: "Websittä Entwickler",
-  about: `Aus Entwickler isch mir Softwareentwicklig, z Designä und d'Lüt im Entwickligsprozäss wichtig. Mit mim Hintergrund ir Usbiudig si mir interkulturelli und intergenerationelli Teams ä Härzensahglägäheit.`,
+  jobDescription: "Web-Entwickler",
+  about: `Ig bi ä Webentwickler mitemne bsundrige Ougemerkt fürs Gstaute und ä Lydeschaft
+  für Barrieräfreiheit und Ahforderigserhebig. Mit mire Erfahrig chani schwirigi Ahforderige
+  ih benutzerfründlechi, ästhetisch ansprächendi und barrieräfreii Web-Lösige verwandle.
+  Witer bini ä lidäschaftlächä Teamplayer, wo säch für d'Zämäarbeit mit interkulturelle
+  und intergenerationelli Teams ihsetzt.`,
   professionalExperience: [
     {
       name: "mimacom AG",
       role: "Entwickler Professional (60%)",
       startDate: "Im momänt",
       location: "Bärn 🐻, Schwiz",
-      description: `Ih beteilige mi aktiv und irä füehrende Rouä ir Frontend-Gilde bir mimacom AG. Dert lehri immer wider nöi Frontend-Sachä.
-      Mini Ufgabä göh vom Entwickle und Konzipiere vom Frontend fürs ISAK-Projekt. Zue mine technische Rouänä bieti ou Beratige im Frontend-Berich ah und hiufe Chundänä ihri Frontend-Strategie z'optimierä.
-      Bir mimacom hani mini Frontend und ou Backend Kentniss vertöift u gfeschtigt. Bi verschidnigi Chundäprojekt hani verschidnigi Rouänä wi Entwickler, Interaktionsdesigner und Scrum Master übernoh.`,
+      description: `Ih setze mi aktiv und irä füehrende Rouä ir Frontend-Gilde bir mimacom AG ih.
+      Dert lehri immer wider nöi Fortschritt im Berich Web. Mini Ufgabä göh vom Entwickle und Konzipiere
+      vo Websitelösige fürs ISAK-Projekt. Zue mine technische Rouänä bieti ou Beratige im Frontend-Berich
+      ah und hiufe mine Chundä ihri Frontend-Strategie z'optimierä. Bir mimacom hani mini Frontend und ou
+      Backend Kentniss vertöift u gfeschtigt. Bi verschidnigi Chundäprojekt hani verschidnigi Rouänä wi Entwickler,
+      Interaktionsdesigner und Scrum Master übernoh.`,
       technologies: [
         "JavaScript",
         "TypeScript",
@@ -23,16 +30,19 @@ export const info: CiriculumVitae = {
         "React",
         "Nx",
         "Java",
+        "Terraform",
+        "Azure",
       ],
     },
     {
       name: "SBB AG",
-      role: "DevOps Softwareenticklär (100%)",
+      role: "DevOps Softwareentwickler (100%)",
       startDate: "2019",
       endDate: "2022",
       location: "Bärn 🐻, Schwiz",
-      description: `Bei SBB AG arbeitete ich in der App Bakery, wo ich vielseitige Rollen von der Frontend- und Backend-Entwicklung bis zum Design von mobilen Apps übernahm. 
-        Zusätzlich zur Entwicklung war ich verantwortlich für die Bearbeitung von Kundenanfragen und die Begleitung unserer internen Kunden während des gesamten Projektzyklus.`,
+      description: `Bir SBB AG hani ir App Bakery  🧁 büglet. Dert hani verschidnigi Rouänä übernoh
+      wi Frontend- u Backend-Entwickler u ou aus Mobile App Designer. Drzue hani o Ufgabänä übernoh
+      für d'Chundäbetreuig und ha sä währendem ganze Projektzyklus betreut.`,
       technologies: [
         "JavaScript",
         "HTML",
@@ -48,10 +58,11 @@ export const info: CiriculumVitae = {
       role: "Lehrling Softwareingenieur & Scrum Master (100%)",
       startDate: "2015",
       endDate: "2019",
-      location: "Bern, Schweiz",
-      description: `Ich absolvierte meine Lehre bei login Berufsbildung AG, ergänzt durch eine Teilzeit-Matura.
-        Während dieser Zeit habe ich meine Fähigkeiten in verschiedenen Bereichen, mit einem besonderen Schwerpunkt auf Frontend-Entwicklung .
-        Ich erwarb auch eine Scrum Master-Zertifizierung, die mein Fachwissen in agilen Methoden und Teamzusammenarbeit erweiterte.`,
+      location: "Bärn 🐻, Schweiz",
+      description: `Ig ha mini Lehr mit Bruefsmatur bir login Bruefsbiudig AG gmacht.
+      Dert hani mini Fähigkeite ih verschidnigi Berich wi d Frontend-Entwicklig und Usbiudig vo
+      Schnuppis u Lehrnendi vertieft. Während dr ganze Lehr hani mini Fähigkeite im Berich
+      agili Methodä und Teamarbeit vertieft und ä Scrum Master-Zertifizierig erworbä.`,
       technologies: ["JavaScript", "HTML", "CSS", "Angular", "Hermes", "Scrum"],
     },
   ],
@@ -60,87 +71,93 @@ export const info: CiriculumVitae = {
     {
       name: "BFH",
       role: "Bachelor of Science Wirtschaftsinformatik",
-      startDate: "Aktuell",
-      location: "Bern, Schweiz",
-      description: `Im Rahmen eines Bachelor of Science in Wirtschaftsinformatik vertiefe ich mich in die Bereiche Softwarearchitektur und -design und rüste mich mit dem Wissen aus, um robuste und skalierbare Softwarelösungen zu erstellen.`,
+      startDate: "Im momänt",
+      location: "Bärn 🐻, Schweiz",
+      description: `
+      Ih mim bruefsbegleitete Studium vertöifi mi im Berich Softwarearchitektur und cha so mis Wüssä witter usbouä,
+      dasi ir Zuekunft robusti und skalierbari Softwarelösigä cha ersteue.`,
     },
     {
       name: "GIBB",
-      role: "Softwareingenieur EFZ mit Berufsmaturität",
+      role: "Softwareentwickler EFZ mit Berufsmaturität",
       startDate: "2015",
       endDate: "2019",
-      location: "Bern, Schweiz",
-      description: `Während meiner Lehre absolvierte ich die Berufsmaturität und legte damit eine solide Grundlage für meine zukünftigen Bestrebungen in der Softwareentwicklung.`,
+      location: "Bärn 🐻, Schweiz",
+      description: `
+      Während mire Lehr hani d Berufsmaturität absolviert und somit ä solidi Grundlagä für mini
+      zuekünftigä Bestrebige im Berich Softwareentwicklung gleit.`,
     },
   ],
 
   skillsAndCertificates: [
     {
       name: "",
-      role: "IREB Anforderungsingenieur - Grundstufe",
+      role: "IREB Requirements Engineer - Foundation Level",
       startDate: "2023",
-      endDate: "2023",
-      location: "Bern, Schweiz",
-      description: `Im Jahr 2023 absolvierte ich die Schulung zum IREB Requirementsengineer.
-        Diese Ausbildung stärkte mein Wissen im Bereich des Requirementsengineering. Sie hat mich mit einem soliden Verständnis für die Erstellung präziser Anforderungen und den Nuancen, die während des gesamten Prozesses zu berücksichtigen sind, ausgestattet.
-        Dieses Fachwissen hat die Qualität meiner Beiträge in Projekten erheblich gesteigert.`,
+      location: "Bärn 🐻, Schweiz",
+      description: `Ih hanä Schuelig zum IREB Requirementsengineer absolviert.
+        Mit däm Nachwis hani mis Wüssä im Requirementsengineering usbout. So chani mit däm Wüssä
+        präzisi Anforderige ersteue und verstah d Nuancene, wo mä währendem
+        ganze Prozäss sött berücksichtigä, besser. Das Fachwüssä het d Qualität vo mine Bitreg
+        ih de Projekt verbesseret.`,
     },
     {
       name: "",
-      role: "ISAQB Zertifizierter Fachmann für Softwarearchitektur - Grundstufe",
+      role: "ISAQB Certified Professional for Software Architecture - Foundation Level",
       startDate: "2021",
-      endDate: "2021",
-      location: "Bern, Schweiz",
-      description: `Nach meiner Ausbildung bei login AG erlangte ich die ISAQB-Zertifizierung in Softwarearchitektur auf dem Foundation Level.
-        Diese Zertifizierung versetzte mich in die Lage, fundierte Architekturentwürfe zu konzipieren und dadurch die Qualität und Robustheit meiner Codebasis zu verbessern.`,
+      location: "Bärn 🐻, Schweiz",
+      description: `
+      Churz nach mire Usbiudig bir Logig AG hani d ISAQB-Zertifizierig im Berich Softwarearchitektur
+      ufem Foundation Level gmacht. Mit däm Wüsse cha ig fundiert Architekturentwürf konzipiere und
+      so d Qualität und Robustheit vo mirä Codebasis verbesserä.`,
     },
     {
       name: "",
       role: "Führung 1 - SVF",
       startDate: "2020",
-      endDate: "2020",
-      location: "Bern, Schweiz",
-      description: `Während meiner Unteroffiziersausbildung im Militär im Jahr 2020 erreichte ich die Zertifizierung Führung 1.
-        Diese Zertifizierung kam nicht nur den Rekruten zugute, die ich ausbildete, sondern hat auch mein Berufsleben bereichert. Ich verwende didaktische und methodologische Ansätze, um meine Ideen und Erklärungen zu artikulieren.
-        Darüber hinaus habe ich mit einem Jahrzehnt Erfahrung in der Leitung von Pfadfindern nicht nur junge Menschen betreut, sondern auch meine Kollegen bei der Planung und Durchführung von Lagern und Aktivitäten angeleitet.`,
+      location: "Lozärn, Schweiz",
+      description: `Während mire Ungeroffizierschschu im Militär ⚔️ 🇨🇭 im Jahr 2020 hani ä witeri Zertifizierig
+      chönne absolviere. Die isch nid nur dä Rekrute z guete cho, woni usbiudet ha, aber s het ou mis
+      Bruefsläbä bereichert. Mit didaktische und methodologische Ansätz chani mini Idee und Erklärige
+      besser übere bringe. Zu däm hani mit mim Jahrzähnt Erfahrig ir Leitig bir Pfadi ⛺️ nid nur jungi
+      Jugendlechi betreut, sondern ou miner Mitleitende bir Planig und Düräfüehrig vo Lager und Aktivitäte begleitet.`,
     },
     {
       name: "",
       role: "Zertifizierter Scrum Master",
       startDate: "2018",
-      endDate: "2018",
       location: "Bern, Schweiz",
-      description: `Im Jahr 2018 erlangte ich während meiner Tätigkeit bei login AG die Scrum Master-Zertifizierung.
-        Die Zertifizierung bereicherte mich mit tiefen Einblicken in die agile Zusammenarbeit, was es mir ermöglichte, Teams effektiv zu führen und die Kommunikation mit Stakeholdern zu optimieren.`,
+      description: ` Während mire Lehr hani scho ä Scrum Master Zertifizierig gmacht. Mit däm Wüsse
+      hani mini Fähigkeite im Berich agili Methodä und Teamarbeit vertieft was mir ermöglicht,
+      Teams effektiv z führe und d Kommunikation mit Stakeholdern z optimiere.`,
     },
   ],
 
   languages: [
-    { language: "Schweizerdeutsch", proficiency: "C2" },
-    { language: "Deutsch", proficiency: "C2" },
-    { language: "Niederländisch", proficiency: "C2" },
-    { language: "Englisch", proficiency: "B2" },
-    { language: "Französisch", proficiency: "B1" },
+    { language: "Schwizerdütsh", code: "ch", proficiency: "C2" },
+    { language: "Dütsch", code: "de", proficiency: "C2" },
+    { language: "Niderlänisch", code: "nl", proficiency: "C2" },
+    { language: "Änglisch", code: "en", proficiency: "B2" },
+    { language: "Französisch", code: "fr", proficiency: "B1" },
   ],
 
   technologies: [
-    { language: "Angular", proficiency: "Experte" },
-    { language: "Vue", proficiency: "Fortgeschritten" },
-    { language: "React", proficiency: "Mittelstufe" },
-    { language: "Nuxt3", proficiency: "Fortgeschritten" },
-    { language: "Astro", proficiency: "Mittelstufe" },
-    { language: "HTML", proficiency: "Experte" },
-    { language: "CSS", proficiency: "Experte" },
-    { language: "TailwindCSS", proficiency: "Fortgeschritten" },
-    { language: "Jest", proficiency: "Mittelstufe" },
-    { language: "Javascript", proficiency: "Experte" },
-    { language: "Typescript", proficiency: "Experte" },
-    { language: "Vite", proficiency: "Fortgeschritten" },
-    { language: "Dart", proficiency: "Mittelstufe" },
-    { language: "Flutter", proficiency: "Mittelstufe" },
-    { language: "Fortran", proficiency: "Keine" },
+    { language: "Javascript", code: "Javascript", proficiency: "> 3 jaar" },
+    { language: "Typescript", code: "Typescript", proficiency: "> 3 jaar" },
+    { language: "CSS", code: "CSS", proficiency: "> 3 jaar" },
+    { language: "HTML", code: "HTML", proficiency: "> 3 jaar" },
+    { language: "Angular", code: "Angular", proficiency: "> 3 jaar" },
+    { language: "Vue", code: "Vue", proficiency: "1 jaar" },
+    { language: "React", code: "React", proficiency: "1 jaar" },
+    { language: "Nuxt3", code: "Nuxt3", proficiency: "1 jaar" },
+    { language: "Astro", code: "Astro", proficiency: "< 1 jaar" },
+    { language: "TailwindCSS", code: "TailwindCSS", proficiency: "< 1 jaar" },
+    { language: "Jest", code: "Jest", proficiency: "> 2 jaar" },
+    { language: "Vite", code: "Vite", proficiency: "1 jaar" },
+    { language: "Dart", code: "Dart", proficiency: "1 jaar" },
+    { language: "Flutter", code: "Flutter", proficiency: "1 jaar" },
+    { language: "Fortran", code: "Fortran", proficiency: "-1000 jaar" },
   ],
-
   tools: [
     "Adobe Photoshop",
     "Adobe InDesign",

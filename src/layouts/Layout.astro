@@ -3,26 +3,17 @@ import Footer from "@components/Footer.astro";
 import MetaHead from "@components/MetaHead.astro";
 import Navbar from "@components/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
+import { getLangFromUrl } from "@i18n/utils";
+import "./Layout.scss";
+
+const language = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <MetaHead title={"Portfolio"} ogImageUrl={"assets/images/profile.webp"} />
     <ViewTransitions />
-    <style>
-      body {
-        --gradient-x: 50%;
-        --gradient-y: 50%;
-        background: radial-gradient(
-            500px at var(--gradient-x) var(--gradient-y),
-            color-mix(in srgb, var(--accent-color-dark) 20%, transparent),
-            transparent 90%
-          ),
-          var(--accent-color);
-        transition: background 0.2s;
-      }
-    </style>
   </head>
 
   <body>

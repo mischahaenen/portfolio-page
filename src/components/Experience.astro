@@ -39,7 +39,7 @@ const { title, experience } = Astro.props as Props;
   </div>
 </section>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  const initializeObserver = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -58,7 +58,9 @@ const { title, experience } = Astro.props as Props;
       item.classList.add("experience__item--hidden");
       observer.observe(item);
     });
-  });
+  };
+
+  document.addEventListener("DOMContentLoaded", initializeObserver);
 </script>
 <style lang="scss">
   .experience__item {

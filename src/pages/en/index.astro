@@ -4,12 +4,12 @@ import { info } from "@data/info";
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/Hero.astro";
 import Experience from "@components/Experience.astro";
-import "../styles/index.css";
+import "../../styles/index.css";
 import Technology from "@components/Technology.astro";
 ---
 
 <Layout>
-  <Hero name={info.name} about={info.about} />
+  <Hero name={info.name} about={info.about} slug="Hello 👋🏻 , I'm" />
   <Experience title="Professional" experience={info.professionalExperience} />
   <Experience title="Education" experience={info.education} />
   <Experience

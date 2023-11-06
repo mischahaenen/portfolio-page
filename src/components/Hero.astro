@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
-const { name, about } = Astro.props;
+const { name, about, slug } = Astro.props;
 import image from "../../public/assets/images/profile.jpg";
 ---
 
 <section class="two__column">
   <div>
-    <p>Hello 👋🏻 , I'm</p>
+    <p>{slug}</p>
     <h1>{name}</h1>
     <p>{about}</p>
   </div>

@@ -1,0 +1,149 @@
+---
+import sendGrid from "@sendgrid/mail";
+import { POST } from "../api/recaptcha";
+import "../../styles/index.css";
+import "../../styles/contact.scss";
+import Layout from "@layouts/Layout.astro";
+
+sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
+
+const getFormValue = (data: FormData, key: string): string => {
+  return data.get(key)?.toString() || "";
+};
+
+const handleFormSubmission = async (request: Request) => {
+  const errors = { name: "", email: "", subject: "", message: "" };
+  let formSubmittedSuccessfully = false;
+  if (request.method === "POST") {
+    try {
+      const data = await request.formData();
+      const name = getFormValue(data, "name");
+      const email = getFormValue(data, "email");
+      const subject = getFormValue(data, "subject");
+      const message = getFormValue(data, "message");
+      const token = getFormValue(data, "g-recaptcha-response");
+      const response = await POST({ token });
+
+      if (!name) errors.name = "Gib bitte ä ächte Name a.";
+      if (!email) errors.email = "Dis Email isch äuä nid ganz korrekt";
+      if (!subject) errors.subject = "Bitte gib doch ä beträff ah.";
+      if (!message || message.length < 6)
+        errors.message = "Mit weniger aus 6 Zeiche chani nid viu ahfah. 🥲";
+      const res = await response.json();
+
+      if (response.status !== 200 || res.score < 0.5) {
+        errors.message += " Bisch dr sicher, das de ke Roboter bisch? 🤖";
+      }
+
+      if (Object.values(errors).every((error) => error === "")) {
+        formSubmittedSuccessfully = true;
+        const msg = {
+          to: "mischahaenen@gmail.com",
+          from: "hello@mischahaenen.ch",
+          replyTo: { email, name },
+          subject: `Nachricht vo ${name}`,
+          text: `${subject}\n\n${message}\n\nLiebi Grüsse\n${name}\n\n\nRecaptcha Pünkt: ${res.score}`,
+        };
+        await sendGrid.send(msg).catch(console.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return { errors, formSubmittedSuccessfully };
+};
+
+const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
+  Astro.request,
+);
+---
+
+<Layout>
+  <h1>Schrib mr!</h1>
+  <section
+    aria-live="polite"
+    class:list={[
+      "success-message",
+      formSubmittedSuccessfully ? "" : "hide-content",
+    ]}
+  >
+    <h2>ÄUÄ! 🎉</h2>
+    <p>
+      Dini Nachricht isch erfougrich versändet wordä. Ich danke dir für dini
+      Nachricht und wirde mi so schnäu wi mügglech bi dir mäudä.
+    </p>
+    <img
+      src="/assets/mail_sent.gif"
+      alt="Illustriertes Bild eines Jungen der den Daumen hoch zeigt."
+    />
+  </section>
+
+  <section
+    aria-live="polite"
+    class={formSubmittedSuccessfully ? "hide-content" : ""}
+  >
+    <!-- Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
+    <form method="POST" id="contact-form" class="form">
+      <label>
+        Di Name:
+        <input
+          type="text"
+          name="name"
+          aria-label="Dein Name"
+          placeholder="Di Name hie..."
+        />
+        {errors.name && <p>{errors.name}</p>}
+      </label>
+      <label>
+        Dini Mail:
+        <input
+          type="email"
+          name="email"
+          required
+          aria-label="Deine Email"
+          placeholder="Dini Mail hie..."
+        />
+        {errors.email && <p>{errors.email}</p>}
+      </label>
+      <label class="two-column">
+        Beträff:
+        <input
+          type="text"
+          name="subject"
+          required
+          aria-label="Betreff"
+          placeholder="Schrib di Beträff hie..."
+        />
+        {errors.subject && <p>{errors.subject}</p>}
+      </label>
+      <label class="two-column">
+        Nachricht:
+        <textarea
+          name="message"
+          required
+          aria-label="Deine Nachricht"
+          placeholder="Schrib dini Nachricht hie..."></textarea>
+        {errors.message && <p>{errors.message}</p>}
+      </label>
+      <button
+        class="g-recaptcha"
+        data-sitekey="6LdrjKYoAAAAAKTxD_31iDNVjFQzqRQAfkPd0v-j"
+        data-callback="onSubmit"
+        data-action="submit">Ab d poscht!</button
+      >
+    </form>
+  </section>
+  <script
+    src="https://www.google.com/recaptcha/api.js?render=6LdrjKYoAAAAAKTxD_31iDNVjFQzqRQAfkPd0v-j"
+    async
+    defer></script>
+  <script defer>
+    //Source: https://docs.astro.build/en/guides/client-side-scripts/
+    function onSubmit(token) {
+      // @ts-ignore
+      const form = document.getElementById("contact-form");
+      if (form.reportValidity()) form.submit();
+    }
+  </script>
+</Layout>

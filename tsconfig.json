@@ -1,19 +1,19 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "baseUrl": ".",
-        "paths": {
-            "@components/*": ["src/components/*"],
-            "@layouts/*": ["src/layouts/*"],
-            "@data/*": ["src/data/*"],
-            "@utils": ["src/utils"],
-            "@types/*": ["src/types/*"]
-        }
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@data/*": ["src/data/*"],
+      "@types/*": ["src/types/*"],
+      "@i18n/*": ["src/i18n/*"]
     }
+  }
 }

@@ -1,0 +1,152 @@
+---
+import sendGrid from "@sendgrid/mail";
+import { POST } from "../api/recaptcha";
+import "../../styles/index.css";
+import "../../styles/contact.scss";
+import Layout from "@layouts/Layout.astro";
+
+sendGrid.setApiKey(import.meta.env.SENDGRID_API_KEY);
+
+const getFormValue = (data: FormData, key: string): string => {
+  return data.get(key)?.toString() || "";
+};
+
+const handleFormSubmission = async (request: Request) => {
+  const errors = { name: "", email: "", subject: "", message: "" };
+  let formSubmittedSuccessfully = false;
+  if (request.method === "POST") {
+    try {
+      const data = await request.formData();
+      const name = getFormValue(data, "name");
+      const email = getFormValue(data, "email");
+      const subject = getFormValue(data, "subject");
+      const message = getFormValue(data, "message");
+      const token = getFormValue(data, "g-recaptcha-response");
+      const response = await POST({ token });
+
+      if (!name) errors.name = "Bitte gebe einen Namen an.";
+      if (!email) errors.email = "Deine Emailadresse scheint ungütig zu sein.";
+      if (!subject) errors.subject = "Bitte gebe einen Betreff an.";
+      if (!message || message.length < 6)
+        errors.message = "Deine Nachricht muss mindestens 6 Zeichen enthalten.";
+      const res = await response.json();
+
+      if (response.status !== 200 || res.score < 0.5) {
+        errors.message +=
+          " Bitte überzeuge mich, dass du keinen Roboter bist. 🤖";
+      }
+
+      if (Object.values(errors).every((error) => error === "")) {
+        formSubmittedSuccessfully = true;
+        const msg = {
+          to: "mischahaenen@gmail.com",
+          from: "hello@mischahaenen.ch",
+          replyTo: { email, name },
+          subject: `Nachricht von ${name}`,
+          text: `${subject}\n\n${message}\n\nFreundliche Grüsse\n${name}\n\n\nRecaptcha Punkte: ${res.score}`,
+        };
+        await sendGrid.send(msg).catch(console.error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  return { errors, formSubmittedSuccessfully };
+};
+
+const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
+  Astro.request,
+);
+---
+
+<Layout>
+  <h1>Schreibe mir!</h1>
+  <section
+    aria-live="polite"
+    class:list={[
+      "success-message",
+      formSubmittedSuccessfully ? "" : "hide-content",
+    ]}
+  >
+    <h2>Erfolgreich! 🎉</h2>
+    <p>
+      Deine Nachricht wurde erfolgreich gesendet. Ich freue mich, dass du dich
+      meldest und ich werde mich so schnell wie möglich bei dir melden. In der
+      Zwischenzeit kannst du gerne meine Website durchstöbern. Danke, dass du
+      dich gemeldet hast!
+    </p>
+    <img
+      src="/assets/mail_sent.gif"
+      alt="Illustration einer erfolgreich versendeten E-Mail"
+    />
+  </section>
+
+  <section
+    aria-live="polite"
+    class={formSubmittedSuccessfully ? "hide-content" : ""}
+  >
+    <!-- Source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
+    <form method="POST" id="contact-form" class="form">
+      <label>
+        Name:
+        <input
+          type="text"
+          name="name"
+          aria-label="Dein Name"
+          placeholder="Dein Name hier..."
+        />
+        {errors.name && <p>{errors.name}</p>}
+      </label>
+      <label>
+        Email:
+        <input
+          type="email"
+          name="email"
+          required
+          aria-label="Deine Email"
+          placeholder="Deine Email hier..."
+        />
+        {errors.email && <p>{errors.email}</p>}
+      </label>
+      <label class="two-column">
+        Betreff:
+        <input
+          type="text"
+          name="subject"
+          required
+          aria-label="Betreff"
+          placeholder="Write deinen Betreff hier..."
+        />
+        {errors.subject && <p>{errors.subject}</p>}
+      </label>
+      <label class="two-column">
+        Nachricht:
+        <textarea
+          name="message"
+          required
+          aria-label="Deine Nachricht"
+          placeholder="Schreibe deine Nachricht hier..."></textarea>
+        {errors.message && <p>{errors.message}</p>}
+      </label>
+      <button
+        class="g-recaptcha"
+        data-sitekey="6LdrjKYoAAAAAKTxD_31iDNVjFQzqRQAfkPd0v-j"
+        data-callback="onSubmit"
+        data-action="submit">Nachricht senden</button
+      >
+    </form>
+  </section>
+  <script
+    src="https://www.google.com/recaptcha/api.js?render=6LdrjKYoAAAAAKTxD_31iDNVjFQzqRQAfkPd0v-j"
+    async
+    defer></script>
+  <script defer>
+    //Source: https://docs.astro.build/en/guides/client-side-scripts/
+    function onSubmit(token) {
+      // @ts-ignore
+      const form = document.getElementById("contact-form");
+      if (form.reportValidity()) form.submit();
+    }
+  </script>
+</Layout>

@@ -1,10 +1,12 @@
 import type { CiriculumVitae } from "../types/CiriculumVitae";
 
 export const info: CiriculumVitae = {
-  baseUrl: "https://mischahaenen.github.io/",
+  baseUrl: "https://mischahaenen.ch",
   name: "Mischa Haenen",
   jobDescription: "Lead Frontend Software Engineer",
-  about: `As a passionate software developer, my focus lies in front-end software development, interaction design, and understanding the human perspective in the development process. With a background in education and project management, I emphasize the importance of intercultural and intergenerational teams, fostering an environment where generation management thrives.`,
+  about: `I am an frontend developer with an eye for design and a passion for accessibility and requirements engineering.
+  With my experience, I transform complex requirements into user-friendly, aesthetically pleasing and accessible web solutions.
+  Furthermore, I am a passionate team player who is committed to working with intercultural and intergenerational teams.`,
   professionalExperience: [
     {
       name: "mimacom AG",
@@ -14,7 +16,7 @@ export const info: CiriculumVitae = {
       description: `As the lead of the Frontend Guild at mimacom AG, I play a pivotal role in setting the direction for frontend development and best practices.
         My responsibilities extend to being the Frontend Architect for the ISAK Project, ensuring the project's frontend architecture is robust and scalable.
         In addition to my technical roles, I provide consulting services in the frontend domain, assisting teams and clients in optimizing their frontend strategies.
-        My tenure at mimacom has further solidified my frontend expertise. I've been actively involved in various customer projects, donning multiple hats ranging from a developer and interaction designer to an architect.`,
+        My tenure at mimacom has further solidified my frontend and backend expertise. I've been actively involved in various customer projects, donning multiple hats ranging from a developer and interaction designer to an architect.`,
       technologies: [
         "JavaScript",
         "TypeScript",
@@ -24,6 +26,8 @@ export const info: CiriculumVitae = {
         "React",
         "Nx",
         "Java",
+        "Terraform",
+        "Azure",
       ],
     },
     {
@@ -32,8 +36,8 @@ export const info: CiriculumVitae = {
       startDate: "2019",
       endDate: "2022",
       location: "Bern, Switzerland",
-      description: `At SBB AG, I worked within the "Kurzauftragsteam", where I took on versatile roles ranging from frontend and backend development to mobile app design. 
-        In addition to development, I was responsible for handling customer requests and guiding our internal clients throughout the entire project lifecycle.`,
+      description: `At SBB AG, I worked in the App Bakery 🧁, where I took on versatile roles from frontend and backend development to mobile app design. 
+      In addition to development, I was responsible for handling customer queries and supporting our internal customers throughout the project cycle.`,
       technologies: [
         "JavaScript",
         "HTML",
@@ -101,7 +105,7 @@ export const info: CiriculumVitae = {
       startDate: "2020",
       endDate: "2020",
       location: "Bern, Switzerland",
-      description: `During my NCO training in the military in 2020, I achieved the Leadership 1 certification.
+      description: `During my NCO training in the military  ⚔️ 🇨🇭 in 2020, I achieved the Leadership 1 certification.
         This certification not only benefited the recruits I trained but has also enriched my professional life. I employ didactic and methodological approaches to articulate my ideas and explanations.
         Additionally, with a decade of experience leading scouts, I've not only mentored young individuals but also guided my peers in planning and executing camps and activities.`,
     },
@@ -117,29 +121,29 @@ export const info: CiriculumVitae = {
   ],
 
   languages: [
-    { language: "Swiss German", proficiency: "C2" },
-    { language: "German", proficiency: "C2" },
-    { language: "Dutch", proficiency: "C2" },
-    { language: "English", proficiency: "B2" },
-    { language: "French", proficiency: "B1" },
+    { language: "Swiss German", code: "ch", proficiency: "C2" },
+    { language: "German", code: "de", proficiency: "C2" },
+    { language: "Dutch", code: "nl", proficiency: "C2" },
+    { language: "English", code: "en", proficiency: "B2" },
+    { language: "French", code: "fr", proficiency: "B1" },
   ],
 
   technologies: [
-    { language: "Angular", proficiency: "Expert" },
-    { language: "Vue", proficiency: "Advanced" },
-    { language: "React", proficiency: "Intermediate" },
-    { language: "Nuxt3", proficiency: "Advanced" },
-    { language: "Astro", proficiency: "Intermediate" },
-    { language: "HTML", proficiency: "Expert" },
-    { language: "CSS", proficiency: "Expert" },
-    { language: "TailwindCSS", proficiency: "Advanced" },
-    { language: "Jest", proficiency: "Intermediate" },
-    { language: "Javascript", proficiency: "Expert" },
-    { language: "Typescript", proficiency: "Expert" },
-    { language: "Vite", proficiency: "Advanced" },
-    { language: "Dart", proficiency: "Intermediate" },
-    { language: "Flutter", proficiency: "Intermediate" },
-    { language: "Fortran", proficiency: "None" },
+    { language: "Javascript", code: "Javascript", proficiency: "> 3 years" },
+    { language: "Typescript", code: "Typescript", proficiency: "> 3 years" },
+    { language: "CSS", code: "CSS", proficiency: "> 3 years" },
+    { language: "HTML", code: "HTML", proficiency: "> 3 years" },
+    { language: "Angular", code: "Angular", proficiency: "> 3 years" },
+    { language: "Vue", code: "Vue", proficiency: "1 year" },
+    { language: "React", code: "React", proficiency: "1 year" },
+    { language: "Nuxt3", code: "Nuxt3", proficiency: "1 year" },
+    { language: "Astro", code: "Astro", proficiency: "< 1 year" },
+    { language: "TailwindCSS", code: "TailwindCSS", proficiency: "< 1 year" },
+    { language: "Jest", code: "Jest", proficiency: "> 2 years" },
+    { language: "Vite", code: "Vite", proficiency: "1 year" },
+    { language: "Dart", code: "Dart", proficiency: "1 year" },
+    { language: "Flutter", code: "Flutter", proficiency: "1 year" },
+    { language: "Fortran", code: "Fortran", proficiency: "-1000 years" },
   ],
 
   tools: [

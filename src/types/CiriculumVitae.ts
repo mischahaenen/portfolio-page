@@ -10,6 +10,7 @@ export interface Experience {
 
 export interface Language {
   language: string;
+  code: string;
   proficiency: string;
 }
 
