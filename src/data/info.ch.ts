@@ -40,7 +40,7 @@ export const info: CiriculumVitae = {
       startDate: "2019",
       endDate: "2022",
       location: "Bärn 🐻, Schwiz",
-      description: `Bir SBB AG hani ir App Bakery  🧁 büglet. Dert hani verschidnigi Rouänä übernoh
+      description: `Bir SBB AG hani ir App Bakery 🧁 büglet. Dert hani verschidnigi Rouänä übernoh
       wi Frontend- u Backend-Entwickler u ou aus Mobile App Designer. Drzue hani o Ufgabänä übernoh
       für d'Chundäbetreuig und ha sä währendem ganze Projektzyklus betreut.`,
       technologies: [

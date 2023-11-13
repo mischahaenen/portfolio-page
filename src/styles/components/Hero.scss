@@ -1,0 +1,54 @@
+h1 {
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color-dark),
+    var(--accent-color-dark)
+  );
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2rem;
+  height: 1rem;
+  background-color: var(--primary-color-dark);
+  vertical-align: bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}
+
+.two__column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.profile__image {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1000px) {
+  .two__column {
+    flex-direction: column;
+  }
+}

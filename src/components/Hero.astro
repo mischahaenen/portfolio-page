@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
-const { name, about, slug } = Astro.props;
+const { name, title, about, slug } = Astro.props;
 import image from "../../public/assets/images/profile.jpg";
+import "@styles/components/Hero.scss";
 ---
 
 <section class="two__column">
   <div>
     <p>{slug}</p>
-    <h1>{name}</h1>
+    <h1 data-name={name} data-title={title}><span class="cursor"></span></h1>
     <p>{about}</p>
   </div>
   <Image
@@ -19,44 +20,4 @@ import image from "../../public/assets/images/profile.jpg";
     loading="lazy"
   />
 </section>
-
-<style>
-  h1 {
-    display: inline-block;
-    font-size: 4rem;
-    font-weight: 700;
-    margin: 0;
-    background: linear-gradient(
-      90deg,
-      var(--primary-color-dark),
-      var(--accent-color-dark)
-    );
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-  }
-  p {
-    font-size: 1.125rem;
-  }
-
-  .two__column {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-  }
-
-  .profile__image {
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  @media (max-width: 1000px) {
-    .two__column {
-      flex-direction: column;
-    }
-  }
-</style>
+<script src="../utils/components/Hero.js"></script>

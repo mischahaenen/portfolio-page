@@ -1,9 +1,8 @@
 ---
-import "../../styles/index.css";
-import "../../styles/contact.scss";
+import "@styles/index.scss";
+import "@styles/contact.scss";
 import Layout from "@layouts/Layout.astro";
-
-import { handleFormSubmission } from "../api/FormHandler.ts";
+import { handleFormSubmission } from "../api/form-handler.ts";
 
 const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
   Astro.request,
@@ -26,10 +25,13 @@ const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
       Zwischenzeit kannst du gerne meine Website durchstöbern. Danke, dass du
       dich gemeldet hast!
     </p>
-    <img
-      src="/assets/mail_sent.gif"
-      alt="Illustration einer erfolgreich versendeten E-Mail"
-    />
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      aria-label="Boy who gives the thumbs up"
+      src="/assets/success_sent.webm"></video>
   </section>
 
   <section

@@ -1,8 +1,8 @@
 ---
-import "../../styles/index.css";
-import "../../styles/contact.scss";
+import "@styles/index.scss";
+import "@styles/contact.scss";
 import Layout from "@layouts/Layout.astro";
-import { handleFormSubmission } from "../api/FormHandler.ts";
+import { handleFormSubmission } from "../api/form-handler.ts";
 
 const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
   Astro.request,
@@ -23,10 +23,13 @@ const { errors, formSubmittedSuccessfully } = await handleFormSubmission(
       Dini Nachricht isch erfougrich versändet wordä. Ich danke dir für dini
       Nachricht und wirde mi so schnäu wi mügglech bi dir mäudä.
     </p>
-    <img
-      src="/assets/mail_sent.gif"
-      alt="Illustriertes Bild eines Jungen der den Daumen hoch zeigt."
-    />
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      aria-label="Boy who gives the thumbs up"
+      src="/assets/success_sent.webm"></video>
   </section>
 
   <section

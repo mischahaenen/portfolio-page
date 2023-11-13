@@ -1,5 +1,6 @@
 ---
 import type { Experience } from "../types/CiriculumVitae";
+import "@styles/components/Experience.scss";
 
 interface Props {
   title: string;
@@ -7,6 +8,13 @@ interface Props {
 }
 
 const { title, experience } = Astro.props as Props;
+
+const wrapAppBakery = (text: string) => {
+  return text.replace(
+    /App Bakery/g,
+    '<span class="rainbow-text">App Bakery</span>',
+  );
+};
 ---
 
 <section>
@@ -24,7 +32,7 @@ const { title, experience } = Astro.props as Props;
               {experience.role}
               {!!experience.name && ` · ${experience.name}`}
             </h3>
-            <p>{experience.description}</p>
+            <p set:html={wrapAppBakery(experience.description)} />
             {!!experience.technologies && (
               <ul aria-label="Used technologies:">
                 {experience.technologies.map((technology) => (
@@ -38,88 +46,4 @@ const { title, experience } = Astro.props as Props;
     }
   </div>
 </section>
-<script type="module">
-  const initializeObserver = () => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("experience__item--hidden");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 1,
-      },
-    );
-
-    document.querySelectorAll(".experience__item").forEach((item) => {
-      item.classList.add("experience__item--hidden");
-      observer.observe(item);
-    });
-  };
-  initializeObserver();
-</script>
-<style lang="scss">
-  .experience__item {
-    display: flex;
-    align-items: flex-start;
-    gap: 4rem;
-    margin-block: 2rem;
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity 0.3s ease-out,
-      transform 0.3s ease-out;
-  }
-
-  .experience__item--hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition:
-      opacity 0.3s ease-out,
-      transform 0.3s ease-out;
-  }
-
-  .experience__duration {
-    margin-top: 0;
-    color: var(--primary-color-dark);
-    min-width: 8rem;
-  }
-
-  .experience__content h3 {
-    margin-top: 0;
-    color: var(--primary-color-dark);
-  }
-
-  .experience__content p {
-    color: var(--grey-color);
-  }
-
-  .experience__content ul {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    padding-left: 0;
-
-    li {
-      background-color: color-mix(
-        in srgb,
-        var(--accent-color-dark) 20%,
-        transparent
-      );
-      padding: 0.125rem 0.5rem;
-      border-radius: 50px;
-      list-style-type: none;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .experience__item {
-      margin-block: 1rem;
-      flex-direction: column;
-      gap: 0;
-    }
-  }
-</style>
+<script src="../utils/components/Experience.js"></script>

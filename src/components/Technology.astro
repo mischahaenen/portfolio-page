@@ -1,6 +1,7 @@
 ---
 import type { Language } from "../types/CiriculumVitae";
 import { Image } from "astro:assets";
+import "@styles/components/Technology.scss";
 
 interface Props {
   title: string;
@@ -32,94 +33,4 @@ const { title, technologies } = Astro.props as Props;
     }
   </ul>
 </section>
-<script type="module">
-  const initializeObserver = () => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("card--hidden");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 1,
-      },
-    );
-
-    document.querySelectorAll(".card").forEach((card) => {
-      card.classList.add("card--hidden");
-      observer.observe(card);
-    });
-  };
-
-  initializeObserver();
-</script>
-<style lang="scss">
-  h2 {
-    margin-top: 4rem;
-  }
-  .card__list {
-    --card-width: 14rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
-    gap: 2rem;
-    padding-left: 0;
-  }
-
-  .card {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: start;
-    background-color: color-mix(
-      in srgb,
-      var(--accent-color-dark) 20%,
-      transparent
-    );
-    border-radius: 10px;
-    padding: 1rem;
-    transition: all 0.3s ease-in-out;
-    .card__description > * {
-      margin: 0;
-    }
-
-    .card__description p {
-      color: var(--grey-color);
-    }
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  .card--hidden {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-
-  @media screen and (max-width: 640px) {
-    .card__list {
-      --card-width: 4rem;
-      gap: 1rem;
-    }
-    .card {
-      padding: 0.5rem;
-      justify-content: center;
-      gap: 0;
-      .card__description {
-        display: none;
-      }
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    .card {
-      background-color: color-mix(
-        in srgb,
-        var(--primary-color-dark) 10%,
-        transparent
-      );
-    }
-  }
-</style>
+<script src="../utils/components/Technology.js"></script>

@@ -9,28 +9,26 @@ const currentLangIndex = langKeys.indexOf(currentLang);
 const nextLang = langKeys[(currentLangIndex + 1) % langKeys.length];
 ---
 
-<ul class="language__switch">
-  {
-    Object.entries(languages)
-      .filter(([lang]) => lang === currentLang)
-      .map(([lang, label]) => (
-        <li>
-          <a href={Astro.url.pathname.replace(lang, nextLang)}>
-            <img src={`/assets/svg/${lang}.svg`} alt={`${languages[lang]}`} />
-            {label}
-          </a>
-        </li>
-      ))
-  }
-</ul>
+{
+  Object.entries(languages)
+    .filter(([lang]) => lang === currentLang)
+    .map(([lang, label]) => (
+      <li class="language__switch">
+        <a href={Astro.url.pathname.replace(lang, nextLang)}>
+          <img
+            src={`/assets/svg/${lang}.svg`}
+            alt={`Flag of currently showed language: ${lang}`}
+          />
+          {label}
+        </a>
+      </li>
+    ))
+}
 <style>
   .language__switch {
-    padding-left: 0;
-  }
-  .language__switch li {
     list-style: none;
   }
-  .language__switch li a {
+  .language__switch a {
     text-decoration: none;
     font-weight: 700;
     display: flex;
