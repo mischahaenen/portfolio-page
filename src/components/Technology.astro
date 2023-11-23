@@ -9,22 +9,25 @@ interface Props {
 }
 
 const { title, technologies } = Astro.props as Props;
+const images = import.meta.glob<ImageMetadata>("../assets/svg/*", {
+  import: "default",
+});
 ---
 
 <section>
   <h2>{title}</h2>
-  <ul class="card__list">
+  <ul class="card-collection">
     {
-      technologies.map((tech) => (
+      technologies.map(async (tech) => (
         <li class="card">
           <Image
-            src={`/assets/svg/${tech.code}.svg`}
+            src={await images[`../assets/svg/${tech.code}.svg`]()}
             alt={tech.language}
             width="50"
             height="50"
             loading="lazy"
           />
-          <div class="card__description">
+          <div class="card-description">
             <h3>{tech.language}</h3>
             <p>{tech.proficiency}</p>
           </div>
@@ -33,4 +36,4 @@ const { title, technologies } = Astro.props as Props;
     }
   </ul>
 </section>
-<script src="../utils/components/Technology.js"></script>
+<script src="../utils/components/TechnologyObserver.js"></script>

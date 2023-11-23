@@ -1,21 +1,22 @@
-/* Palette: https://colorhunt.co/palette/0c356a0174beffc436fff0ce */
+/* Color Palette Reference: https://colorhunt.co/palette/0c356a0174beffc436fff0ce */
 :root {
-  --primary-text-color: #111111;
-  --primary-color: #3876bf;
-  --primary-color-dark: #192655;
-  --accent-color: #f3f0ca;
-  --accent-color-dark: #e1aa74;
-  --grey-color: #373737;
-  --primary-font: "Lato", sans-serif;
-  --heading-font: "Montserrat", sans-serif;
+  --primary-text-color: #111111; /* Primary text color for body */
+  --primary-color: #3876bf; /* Primary color for UI elements */
+  --primary-color-dark: #192655; /* Darker shade of primary color */
+  --accent-color: #f3f0ca; /* Accent color for highlights */
+  --accent-color-dark: #e1aa74; /* Darker shade of accent color */
+  --grey-color: #373737; /* Grey color for muted text */
+  --primary-font: "Lato", sans-serif; /* Primary font for body text */
+  --heading-font: "Montserrat", sans-serif; /* Font for headings */
+  --transition-speed: 0.3s; /* Standard transition speed for UI animations */
 }
 
 body {
   font-family: var(--primary-font);
   color: var(--primary-text-color);
-  line-height: 1.6;
 }
 
+/* Headings Styles */
 h1,
 h2,
 h3,
@@ -26,28 +27,40 @@ h6 {
   color: var(--primary-color-dark);
 }
 
-p {
-  max-width: 75ch;
+h1 {
+  font-size: clamp(
+    2.5rem,
+    5vw,
+    4rem
+  ); /* Responsive font size for main heading */
 }
 
+p {
+  max-width: 75ch; /* Optimal line length for readability */
+  line-height: 1.5; /* Standard line height for better readability */
+}
+
+/* Link Styles */
 a {
   color: var(--primary-color-dark);
-  transition: color 0.3s ease;
+  transition: color var(--transition-speed) ease;
 }
 
 a:hover {
   color: var(--primary-color);
 }
 
+/* Container for Centering Content */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
+/* Animated Rainbow Text Effect */
 .rainbow-text {
   font-weight: 700;
-  cursor: url("/assets/images/hoang_is_legend_dark.svg"), auto;
+  cursor: url("/assets/images/hoang_is_legend_dark.svg"), auto; /* Custom cursor */
   background-image: linear-gradient(
     90deg,
     #a70000,
@@ -60,21 +73,22 @@ a:hover {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  transition: background-position 0.3s ease;
+  transition: background-position var(--transition-speed) ease;
 }
 
 .rainbow-text:hover {
   background-position: 100% 0;
 }
 
+/* Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-text-color: #eaeaea;
-    --accent-color: #192655;
-    --accent-color-dark: #3876bf;
-    --primary-color: #e1aa74;
-    --primary-color-dark: #f3f0ca;
-    --grey-color: #b6b6b6;
+    --primary-text-color: #eaeaea; /* Lighter text color for dark mode */
+    --accent-color: #192655; /* Adjusted accent color for dark mode */
+    --accent-color-dark: #3876bf; /* Adjusted dark accent color for dark mode */
+    --primary-color: #e1aa74; /* Primary color in dark mode */
+    --primary-color-dark: #f3f0ca; /* Dark primary color in dark mode */
+    --grey-color: #b6b6b6; /* Grey color for dark mode */
   }
 
   .rainbow-text {

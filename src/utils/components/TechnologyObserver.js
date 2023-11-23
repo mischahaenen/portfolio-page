@@ -3,7 +3,7 @@ const initializeObserver = () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove("card--hidden");
+          entry.target.classList.remove("card-state-hidden");
           observer.unobserve(entry.target);
         }
       });
@@ -14,7 +14,7 @@ const initializeObserver = () => {
   );
 
   document.querySelectorAll(".card").forEach((card) => {
-    card.classList.add("card--hidden");
+    card.classList.add("card-state-hidden");
     observer.observe(card);
   });
 };

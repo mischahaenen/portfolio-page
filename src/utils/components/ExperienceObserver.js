@@ -3,7 +3,7 @@ const initializeObserver = () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.remove("experience__item--hidden");
+          entry.target.classList.remove("experience-list-item--state-hidden");
           observer.unobserve(entry.target);
         }
       });
@@ -13,8 +13,8 @@ const initializeObserver = () => {
     },
   );
 
-  document.querySelectorAll(".experience__item").forEach((item) => {
-    item.classList.add("experience__item--hidden");
+  document.querySelectorAll(".experience-list-item").forEach((item) => {
+    item.classList.add("experience-list-item--state-hidden");
     observer.observe(item);
   });
 };

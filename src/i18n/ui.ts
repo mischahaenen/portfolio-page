@@ -2,7 +2,7 @@
 export const languages = {
   en: "English",
   de: "Deutsch",
-  ch: "Schwizerdütsh",
+  ch: "Schwizerdütsch",
 };
 export const defaultLang = "en";
 export const ui = {

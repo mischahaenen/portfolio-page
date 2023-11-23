@@ -1,8 +1,6 @@
-h1 {
+.heading-colorful-bold {
   display: inline-block;
-  font-size: 4rem;
   font-weight: 700;
-  margin: 0;
   background: linear-gradient(
     90deg,
     var(--primary-color-dark),
@@ -12,15 +10,16 @@ h1 {
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+  margin-block: 0.5rem;
 }
 
-p {
+.text-big {
   font-size: 1.125rem;
 }
 
 .cursor {
   display: inline-block;
-  width: 2rem;
+  width: calc(0.5rem + 1vw);
   height: 1rem;
   background-color: var(--primary-color-dark);
   vertical-align: bottom;
@@ -33,22 +32,25 @@ p {
   }
 }
 
-.two__column {
+.two-column-layout {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
 }
 
-.profile__image {
+.profile-image {
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
+  width: clamp(200px, 40vw, 350px);
+  height: clamp(200px, 40vw, 350px);
 }
 
 @media (max-width: 1000px) {
-  .two__column {
+  .two-column-layout {
     flex-direction: column;
+    gap: 2rem;
   }
 }

@@ -4,7 +4,7 @@ import MetaHead from "@components/MetaHead.astro";
 import Navbar from "@components/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
 import { getLangFromUrl } from "@i18n/utils";
-import "./Layout.scss";
+import "@styles/components/Layout.scss";
 
 const language = getLangFromUrl(Astro.url);
 ---
@@ -18,7 +18,7 @@ const language = getLangFromUrl(Astro.url);
 
   <body>
     <Navbar />
-    <main class="container">
+    <main class="container" id="main">
       <slot />
     </main>
     <Footer />

@@ -10,19 +10,32 @@ const t = useTranslations(lang);
 ---
 
 <header>
+  <a href="#main" class="skip-to-content-link">Skip to main content</a>
   <a href={`/${lang}/`}
-    ><Image class="header__logo" src={logo} alt="logo" width="75" /></a
+    ><Image class="header-logo" src={logo} alt="logo" width="75" /></a
   >
   <nav>
-    <ul class="navbar">
+    <ul class="navigation-bar">
       <LanguagePicker />
       <li>
-        <a href={`/${lang}/`}>
+        <a
+          class="navigation-link"
+          href={`/${lang}/`}
+          aria-current={Astro.url.pathname === `/${lang}/` ? "page" : null}
+          data-astro-reload
+        >
           {t("nav.home")}
         </a>
       </li>
       <li>
-        <a href={`/${lang}/contact/`}>
+        <a
+          class="navigation-link"
+          href={`/${lang}/contact/`}
+          aria-current={Astro.url.pathname === `/${lang}/contact/`
+            ? "page"
+            : null}
+          data-astro-reload
+        >
           {t("nav.contact")}
         </a>
       </li>

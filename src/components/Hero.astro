@@ -1,23 +1,47 @@
 ---
 import { Image } from "astro:assets";
 const { name, title, about, slug } = Astro.props;
-import image from "../../public/assets/images/profile.jpg";
+import image from "../assets/images/profile.jpg";
 import "@styles/components/Hero.scss";
 ---
 
-<section class="two__column">
+<section class="two-column-layout">
   <div>
-    <p>{slug}</p>
-    <h1 data-name={name} data-title={title}><span class="cursor"></span></h1>
-    <p>{about}</p>
+    <p class="text-big">{slug}</p>
+    <h1 class="heading-colorful-bold" data-name={name} data-title={title}>
+      {name}
+    </h1>
+    <p class="text-big">{about}</p>
   </div>
   <Image
-    class="profile__image"
+    class="profile-image"
     src={image}
     alt="Profile image of Mischa Haenen"
-    width="300"
-    height="300"
-    loading="lazy"
   />
 </section>
-<script src="../utils/components/Hero.js"></script>
+<script>
+  import { sleep, typeText, deleteText } from "../utils/typing.ts";
+  const heading = document.querySelector("h1");
+  const texts = [
+    heading?.dataset.name || "Mischa Haenen",
+    heading?.dataset.title || "Software Engineer",
+  ];
+
+  const runAnimation = async () => {
+    if (!heading) return;
+    heading.innerHTML = "";
+
+    const cursorSpan = document.createElement("span");
+    cursorSpan.className = "cursor";
+    heading.appendChild(cursorSpan);
+
+    for (const text of texts) {
+      await typeText(heading, text, cursorSpan);
+      await sleep(2000);
+      await deleteText(heading, text.length);
+    }
+    window.requestAnimationFrame(runAnimation);
+  };
+
+  window.requestAnimationFrame(runAnimation);
+</script>

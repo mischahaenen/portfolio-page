@@ -19,31 +19,29 @@ const wrapAppBakery = (text: string) => {
 
 <section>
   <h2>{title}</h2>
-  <div class="experience__list">
-    {
-      experience.map((experience) => (
-        <div class="experience__item">
-          <p class="experience__duration">
-            {experience.startDate}
-            {!!experience.endDate && ` - ${experience.endDate}`}
-          </p>
-          <div class="experience__content">
-            <h3>
-              {experience.role}
-              {!!experience.name && ` · ${experience.name}`}
-            </h3>
-            <p set:html={wrapAppBakery(experience.description)} />
-            {!!experience.technologies && (
-              <ul aria-label="Used technologies:">
-                {experience.technologies.map((technology) => (
-                  <li>{technology}</li>
-                ))}
-              </ul>
-            )}
-          </div>
+  {
+    experience.map((experience) => (
+      <div class="experience-list-item">
+        <p class="experience-duration-display">
+          {experience.startDate}
+          {!!experience.endDate && ` - ${experience.endDate}`}
+        </p>
+        <div class="experience-content">
+          <h3>
+            {experience.role}
+            {!!experience.name && ` · ${experience.name}`}
+          </h3>
+          <p set:html={wrapAppBakery(experience.description)} />
+          {!!experience.technologies && (
+            <ul aria-label="Used technologies:">
+              {experience.technologies.map((technology) => (
+                <li>{technology}</li>
+              ))}
+            </ul>
+          )}
         </div>
-      ))
-    }
-  </div>
+      </div>
+    ))
+  }
 </section>
-<script src="../utils/components/Experience.js"></script>
+<script src="../utils/components/ExperienceObserver.js"></script>

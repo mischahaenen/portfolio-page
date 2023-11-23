@@ -5,12 +5,16 @@ header {
   padding: 2rem 4rem;
 }
 
-a {
+.navigation-link {
   text-decoration: none;
   font-weight: 700;
 }
 
-.navbar {
+.navigation-link[aria-current] {
+  color: var(--primary-color);
+}
+
+.navigation-bar {
   display: flex;
   list-style: none;
   flex-wrap: wrap;
@@ -19,13 +23,39 @@ a {
   padding-left: 0;
 }
 
+/* Source: https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/ */
+.skip-to-content-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+
+.skip-to-content-link:focus,
+.skip-to-content-link:active {
+  color: var(--accent-color);
+  background-color: var(--primary-color-dark);
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: auto;
+  overflow: auto;
+  border-radius: 5px;
+  padding: 0.25rem;
+  text-align: center;
+  z-index: 999;
+}
+
 @media (max-width: 768px) {
   header {
     padding: 1rem;
+  }
 
-    .header__logo {
-      width: 50px;
-      height: auto;
-    }
+  .header-logo {
+    width: 50px;
+    height: auto;
   }
 }
