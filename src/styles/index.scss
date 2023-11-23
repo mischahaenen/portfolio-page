@@ -28,11 +28,7 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(
-    2.5rem,
-    5vw,
-    4rem
-  ); /* Responsive font size for main heading */
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive font size for main heading */
 }
 
 p {
